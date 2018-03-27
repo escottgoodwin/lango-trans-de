@@ -10,7 +10,7 @@
     <title>Cold Start Doc2Vec</title>
         <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="static/offcanvas.css" rel="stylesheet">
+
   </head>
 
   <body class="bg-light">
@@ -31,20 +31,19 @@
     </nav>
 
     <main role="main" class="container">
-      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-green rounded box-shadow">
         <div class="lh-100">
           <h6 class="mb-0 text-white lh-100">Article Recommendations</h6>
         </div>
       </div>
 
-
       {% for cat in saved_recs %}
 
       <div class="my-3 p-3 bg-white rounded box-shadow">
-          <h6 class="border-bottom border-gray pb-2 mb-0">Category Cluster Articles</h6>
+          <h6 class="border-bottom border-gray pb-2 mb-0">Category Cluster</h6>
             {% for link in cat %}
-            <div class="media text-muted pt-3 dont-break-out">
-              <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray dont-break-out">
+            <div class="media text-muted pt-3">
+              <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
               <a href="{{ link }}" target="_blank">{{ link }}</a>
               </p>
             </div>

@@ -15,8 +15,9 @@ from create_d2v import create_doc2vec_model
 import os
 import re
 from sys import platform
-from flask import Flask, flash, redirect, render_template, request, session, abort
-import webbrowser,threading
+from cold_start_flask import start_flask
+#from flask import Flask, flash, redirect, render_template, request, session, abort
+#import webbrowser,threading
 
 def get_history(filters,days_ago):
     ## copies database with browsing data (browser databases are often not accessible while browser is in use)
@@ -78,7 +79,7 @@ def article_vecs1(justarticles,name,lang):
     vecs = [lang_model.infer_vector(doc.words) for doc in dlhist_tagged]
     return vecs
 
-def cluster_articles(articles,vecs,clust_num=10):
+def cluster_articles(articles,vecs,clust_num):
     ## create chose number of Kmeans clusters from the inferred doc2vec vectors
     km = KMeans(n_clusters=clust_num)
     km.fit(vecs)
@@ -96,7 +97,7 @@ def cluster_articles(articles,vecs,clust_num=10):
     sorted_clusters = df.groupby(['cluster']).size().sort_values(ascending=False)
     return df,sorted_clusters,centers
 
-def get_popular(df,clusters,centers,percent=.5):
+def get_popular(df,clusters,centers,percent):
     ## get the top percent of clusters - default 50% - termed popular clusters
     cutoff = int(len(clusters)*percent)
     ## get the centers of the most popular clusters to use in recommendations
@@ -105,7 +106,7 @@ def get_popular(df,clusters,centers,percent=.5):
     df_pop = df.loc[df['cluster'].isin(clusters.index[clusters.index[:cutoff]])]
     return popcenters,df_pop
 
-def get_pop_vecs(model_name,native,days):
+def get_pop_vecs(model_name,native,days,clust_num=10,percent=.5):
     ## sample filter to remove irrevelvant sites - generally non-news oriented sites
     filters2 = [
     'duolingo','file://','instagram','twitter','localhost','google','collegeofthedesert','youtube','starbucks','sbux-portal','toyota','quicklaunchsso','github','bankofamerica','plex','hbogo','showtime','netflix','thepiratebay','facebook','tvguide','customwebauth','t.co',
@@ -133,12 +134,12 @@ def get_pop_vecs(model_name,native,days):
     print('vecs created',str(t3-t2))
     ## get clusters and df of browsing history
     ## submit optional num of clusters - 20 clusters - cluster_articles(arts_onelang,art_vecs,20)
-    df,sorted_clusters,centers = cluster_articles(arts_onelang,art_vecs)
+    df,sorted_clusters,centers = cluster_articles(arts_onelang,art_vecs,clust_num)
     t4 = datetime.datetime.now()
     print('vecs clustered',str(t4-t3))
     ## get centers and df of articles in the most popular clusters
     ## optional submission of percentage for cutoff - get top 30% clusters - get_popular(df,sorted_clusters,centers,.3)
-    popcenters_cur,df_pop = get_popular(df,sorted_clusters,centers)
+    popcenters_cur,df_pop = get_popular(df,sorted_clusters,centers,percent)
     t5 = datetime.datetime.now()
     print('pop vecs created',str(t5-t4))
     print('total time to get popular vecs',str(t5-t0))
@@ -154,15 +155,9 @@ def get_recs(corpus,vecs,model_name,rec_num):
     sims = [lang_model.docvecs.most_similar([vec], topn=rec_num)for vec in vecs]
     ## get the link and article from the corpus by indexes from list of sims (indexes,sim score) for each popular cluster
     sim_links_art = [[[corpus[x[0]]['link'],corpus[x[0]]['article']] for x in y] for y in sims]
-    #sim_links_art = []
-    #for y in sims:
-    #    art_link = []
-    #    for x in y:
-    #        link_art = [corpus[x[0]]['link'],corpus[x[0]]['article']]
-    #        art_link.append(link_art)
-    #    sim_links_art.append(art_link)
     ## list of just links for each popular clusters
     sim_links = [[x[0] for x in cluster] for cluster in sim_links_art]
+    sim_links = [list(set(cluster)) for cluster in sim_links]
     ## list of just articles
     sim_articles = [[x[1] for x in cluster] for cluster in sim_links_art]
     return sim_links,sim_articles,sim_links_art
@@ -184,15 +179,15 @@ def main():
         create_doc2vec_model(corpus,model_name)
         print('doc2vec model created: ' + model_name + 'model.model ', str(t2-t1))
     print('analzying browser history')
-    pop_vecs,_ = get_pop_vecs(model_name,lang,2)
+    pop_vecs,_ = get_pop_vecs(model_name,lang,2,15,.33)
     print('making recommendations')
     corpus = json.load(open(article_file))
-    link_recs,art_recs,sim_links_art = get_recs(corpus,pop_vecs,model_name,10)
+    link_recs,art_recs,sim_links_art = get_recs(corpus,pop_vecs,model_name,20)
     t3 = datetime.datetime.now()
     print('recs made: ', str(t3-t2))
     output_name = re.sub('[^0-9]','', str(str(datetime.datetime.now())))
     art_file = 'art__recs_' + output_name + '.txt'
-    link_file = 'link_recs_' + output_name + '.txt'
+    link_file = 'link_recs.txt'
     with open(link_file, 'w') as outfile:
         json.dump(link_recs, outfile)
     with open(art_file, 'w') as outfile:
@@ -201,18 +196,8 @@ def main():
     print('rec articles created ' + art_file)
     print('total time:',str(t3-t0))
 
-    app = Flask(__name__)
-
-    saved_recs = json.load(open(link_file))
-
-    @app.route("/")
-    def index():
-        return render_template(
-            'cold_start2.html',name=saved_recs)
-
-    threading.Timer(1.25, lambda: webbrowser.open('http://127.0.0.1:5084/')).start()
-    app.run(port=5084)
-
+    saved_recs = json.load(open('link_recs.txt'))
+    start_flask(saved_recs)
 
 
 if __name__ == '__main__':

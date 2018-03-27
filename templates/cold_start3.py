@@ -1,3 +1,9 @@
+import webbrowser
+import urllib
+import pathname2url
+import os
+
+html = '''
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,7 +16,7 @@
     <title>Cold Start Doc2Vec</title>
         <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="static/offcanvas.css" rel="stylesheet">
+
   </head>
 
   <body class="bg-light">
@@ -31,28 +37,38 @@
     </nav>
 
     <main role="main" class="container">
-      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-green rounded box-shadow">
         <div class="lh-100">
           <h6 class="mb-0 text-white lh-100">Article Recommendations</h6>
         </div>
       </div>
-
-
-      {% for cat in saved_recs %}
-
+'''
+for x in saved_recs:
+    html += '''
       <div class="my-3 p-3 bg-white rounded box-shadow">
-          <h6 class="border-bottom border-gray pb-2 mb-0">Category Cluster Articles</h6>
-            {% for link in cat %}
-            <div class="media text-muted pt-3 dont-break-out">
-              <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray dont-break-out">
-              <a href="{{ link }}" target="_blank">{{ link }}</a>
+          <h6 class="border-bottom border-gray pb-2 mb-0">Category Cluster</h6>
+          '''
+    for y in x:
+        html += '''
+            <div class="media text-muted pt-3">
+              <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+              <a href="
+              '''
+              + y +
+              '''
+              " target="_blank">
+              '''
+              + y +
+              '''
+              </a>
               </p>
             </div>
-            {% endfor %}
-      </div>
-      {% endfor %}
+            '''
+html +='''
+     </div>
     </main>
       <!-- Bootstrap core JavaScript
+
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -64,3 +80,20 @@
     <script src="/static/offcanvas.js"></script>
   </body>
 </html>
+'''
+
+file_name =  dir_name + ".html"
+path = dir_name + "/" + file_name
+f= open(path,"w+")
+f.write(html)
+f.close()
+
+if browser:
+    import webbrowser
+    from urllib.request import pathname2url
+    #chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
+    #webbrowser.get(chrome_path).open(file_name,new=1)
+    #webbrowser.open_new(file_name)
+     # Python 3.x
+    url = 'file:{}'.format(pathname2url(os.path.abspath(path)))
+    webbrowser.open_new(url)
