@@ -45,12 +45,24 @@
             {% for link in cat %}
             <div class="media text-muted pt-3 dont-break-out">
               <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray dont-break-out">
-              <a href="{{ link }}" target="_blank">{{ link }}</a>
+              <a dont-break-out href="{{ link }}" target="_blank">{{ link }}</a>
               </p>
             </div>
             {% endfor %}
       </div>
       {% endfor %}
+      <div class="my-3 p-3 bg-white rounded box-shadow">
+          <h6 class="border-bottom border-gray pb-2 mb-0">Article Distribution in Clusters</h6>
+            <div class="media text-muted pt-3 dont-break-out">
+
+              <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray dont-break-out">
+
+              <img class="mx-auto d-block" src="static/clusters1.png" alt="Cluster Chart" width="640" height="auto">
+
+              </p>
+
+            </div>
+      </div>
     </main>
       <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -61,6 +73,6 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
-    <script src="/static/offcanvas.js"></script>
+    <script src="static/offcanvas.js"></script>
   </body>
 </html>

@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn.cluster import KMeans
 from stop_words import get_stop_words
 from urllib.parse import urlparse
+import matplotlib.pyplot as plt
 import sqlite3
 import urllib3
 import urllib.request
@@ -16,8 +17,6 @@ import os
 import re
 from sys import platform
 from cold_start_flask import start_flask
-#from flask import Flask, flash, redirect, render_template, request, session, abort
-#import webbrowser,threading
 
 def get_history(filters,days_ago):
     ## copies database with browsing data (browser databases are often not accessible while browser is in use)
@@ -95,6 +94,9 @@ def cluster_articles(articles,vecs,clust_num):
     ## sort df by clusters with the most articles
     ## this is a proxy for user interest - the more articles there are in a cluster, the more interest a use has in the 'topic' represented by that cluster
     sorted_clusters = df.groupby(['cluster']).size().sort_values(ascending=False)
+    plot = sorted_clusters.plot(kind='bar')
+    fig = plot.get_figure()
+    fig.savefig("static/clusters.png")
     return df,sorted_clusters,centers
 
 def get_popular(df,clusters,centers,percent):
