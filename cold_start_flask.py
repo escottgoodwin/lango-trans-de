@@ -13,7 +13,6 @@ def start_flask(link_recs):
 
 
     threading.Timer(1.25, lambda: webbrowser.open('http://127.0.0.1:5084/')).start()
-    app.debug = True
     app.run(port=5084)
 
 if __name__ == "__main__":

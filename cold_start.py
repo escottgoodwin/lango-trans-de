@@ -171,12 +171,14 @@ def main():
     if not os.path.exists(article_file):
         print('downloading corpus')
         urllib.request.urlretrieve('https://www.dropbox.com/s/m25u619i207r7f2/news_arts1.txt?dl=1', article_file)
+        t1 = datetime.datetime.now()
         print('corpus downloaded ',str(t1-t0))
     t2 = datetime.datetime.now()
     if not os.path.exists(model_name + 'model.model'):
         corpus = json.load(open(article_file))
         print('creating doc2vec model')
         create_doc2vec_model(corpus,model_name)
+        t2 = datetime.datetime.now()
         print('doc2vec model created: ' + model_name + 'model.model ', str(t2-t1))
     print('analzying browser history')
     pop_vecs,_ = get_pop_vecs(model_name,lang,2,15,.33)
