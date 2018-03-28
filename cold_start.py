@@ -12,7 +12,7 @@ import urllib3
 import urllib.request
 from shutil import copy2
 from art_scrape2 import get_feed_articles
-from create_d2v import create_doc2vec_model
+from create_d2v import create_doc2vec_model,format_arts
 import os
 import re
 from sys import platform
@@ -164,15 +164,13 @@ def get_recs(corpus,vecs,model_name,rec_num):
     sim_articles = [[x[1] for x in cluster] for cluster in sim_links_art]
     return sim_links,sim_articles,sim_links_art
 
-def main():
+def rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num):
     t0 = datetime.datetime.now()
-    lang = 'en'
-    model_name = 'news'
     article_file = model_name + '_arts.txt'
     t1 = datetime.datetime.now()
     if not os.path.exists(article_file):
         print('downloading corpus')
-        urllib.request.urlretrieve('https://www.dropbox.com/s/m25u619i207r7f2/news_arts1.txt?dl=1', article_file)
+        urllib.request.urlretrieve(corpus_url, article_file)
         t1 = datetime.datetime.now()
         print('corpus downloaded ',str(t1-t0))
     t2 = datetime.datetime.now()
@@ -183,10 +181,10 @@ def main():
         t2 = datetime.datetime.now()
         print('doc2vec model created: ' + model_name + 'model.model ', str(t2-t1))
     print('analyzing browser history')
-    pop_vecs,_ = get_pop_vecs(model_name,lang,2,15,.33)
+    pop_vecs,_ = get_pop_vecs(model_name,lang,days,cluster_num,pop_percent)
     print('making recommendations')
     corpus = json.load(open(article_file))
-    link_recs,art_recs,sim_links_art = get_recs(corpus,pop_vecs,model_name,20)
+    link_recs,art_recs,sim_links_art = get_recs(corpus,pop_vecs,model_name,rec_num)
     t3 = datetime.datetime.now()
     print('recs made: ', str(t3-t2))
     output_name = re.sub('[^0-9]','', str(str(datetime.datetime.now())))
@@ -202,6 +200,26 @@ def main():
 
     saved_recs = json.load(open('link_recs.txt'))
     start_flask(saved_recs)
+
+def main():
+    #location of corpus
+    corpus_url = 'https://www.dropbox.com/s/m25u619i207r7f2/news_arts1.txt?dl=1'
+    # corpus needs to be a format - {'article':'article text string','date':'today's date string','link':'http://www.nolink.com'}
+    # you convert a list of articles into this format with dummy values  by calling format_arts(articles)
+    # majority language for browsing history - history needs to be monolingual - foreign articles will be translated to native detect_language
+    lang = 'en'
+    ## doc2vec model name for corpus
+    model_name = 'news'
+    ## number of days browsing history to analyze
+    days = 2
+    ## number of clusters (abstract 'topics') to find in the browsing history
+    ## 10-15 seems to work well for about 300 items
+    cluster_num = 15
+    ## percent cut off for clusters with the most articles - .33 will yield the top 5 clusters with the most articles
+    pop_percent = .33
+    ## numer of article recommendations for each cluster category
+    rec_num = 20
+    rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num)
 
 
 if __name__ == '__main__':
