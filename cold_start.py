@@ -182,7 +182,7 @@ def main():
         create_doc2vec_model(corpus,model_name)
         t2 = datetime.datetime.now()
         print('doc2vec model created: ' + model_name + 'model.model ', str(t2-t1))
-    print('analzying browser history')
+    print('analyzing browser history')
     pop_vecs,_ = get_pop_vecs(model_name,lang,2,15,.33)
     print('making recommendations')
     corpus = json.load(open(article_file))
