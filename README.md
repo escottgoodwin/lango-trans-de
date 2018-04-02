@@ -68,3 +68,5 @@ AREAS FOR FURTHER INVESTIGATION
 2. Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to signficant speed improvements. 
 
 3. Using pre-trained word vectors such as FastText with Doc2Vec. 
+
+4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
