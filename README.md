@@ -93,6 +93,8 @@ Runtime will depend on connection speed. First run will be considerably longer b
 
 According to gensim's documentation, using a C compiler would significantly optimize training and speedup model generation by a factor of 70. A model that took 8 minutes to generate would take only about 7 seconds after optimization.
 
+**Number of Recommendation Clusters**
+
 The ideal number of recommendation clusters for a given corpus and a given number of articles in user history can be investigated with the Elbow method, or other cluster evaluation methods mentioned in http://www.sthda.com/english/articles/29-cluster-validation-essentials/96-determining-the-optimal-number-of-clusters-3-must-know-methods/#elbow-method. Example - for 100 articles, 10 clusters, for 500 articles, 20 clusters etc. Adjusting the numbe of clusters in this way relies on an assumption that, as the number of articles increases, there will likely be a larger number of user interests represented in the history, or that a user's interests are more 'fine grained' within a given broad topic. Getting the number of 'interests' and 'granularity' right will improve the quality of recommendations. 
 
 KEY ADVANTAGES
@@ -124,5 +126,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NDM2Njg0Ml19
+eyJoaXN0b3J5IjpbMTM5OTM4MzM0Ml19
 -->
