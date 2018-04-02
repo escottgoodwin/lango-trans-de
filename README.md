@@ -149,9 +149,9 @@ Develop/Integrate a method to automatically determine ideal number of clusters f
 
 8. Single Order of Recommendation For All Category Clusters
 
-Individual article recommendations (links) could be ranked in a single list by combining the cosine distance and weighting it by the popularity of the cluster the article link belongs to. Links with high cosine similiarity scores (or small cosine distances) are considered highly related to the 'center' 
+Individual article recommendations (links) could be ranked in a single list by combining the cosine distance and weighting it by the popularity of the cluster the article link belongs to. Links with high cosine similarity scores (or small cosine distances) are considered highly related to the 'center' of user's interest. However, some interests are more popular or more important than others. Therefore, we could develop a master ranking where the fi
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTgwNTY4NDBdfQ==
+eyJoaXN0b3J5IjpbLTEyMDE1MDY3MjBdfQ==
 -->
