@@ -99,17 +99,17 @@ Adjusting the number of clusters in this way relies on an assumption that, as th
 
 **KEY ADVANTAGES**
 
-1. No user interaction required. 
+**1. No user interaction required.** 
 
 A user's interest profile can be modeled from their browser history and 'projected' into a given corpus. In practice, browser history could be obtained from browser plugin a user voluntary installs or from a vendor that tracks browsing behaviour through cookies. 
 
-2. User Interests in a Continuous Vector Space
+**2. User Interests in a Continuous Vector Space**
 
 User interests exist in the continuous semantic space of the corpus. No tags, no trying to determine the distribution percentage  of an arbitrary number of 'topics' - 20% Marketing, 45% Sales, 30% Data Science, 5% Hospitals. 
 
 The continuous nature of the semantic space leads to recommendations that are related to various aspects within the subject article that are not clear, discrete human intelligible topics. This sort of recommending would prove to be more difficult with discrete topics, such as tags, chosen by a rater. 
 
-Example
+**Example**
 
 For example, an article about instituting a 'sin tax' on alcohol and tobacco sales, will result in article recommendations about:
 
@@ -119,7 +119,7 @@ For example, an article about instituting a 'sin tax' on alcohol and tobacco sal
 4. How consumers respond to price changes. 
 5. Other hazardous consumer products and attempts to regulate them to enhance safety. 
 
-The continuous nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article, without the need to arbitrarily determine discrete, human intelligible topics. In a continuous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what the 'sin tax' article is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be more difficult and, I suspect, lead to less effective recommendations. 
+The continuous nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article without the need to arbitrarily determine discrete, human intelligible topics. In a continuous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what the 'sin tax' article is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be more difficult and, I suspect, lead to less effective recommendations. 
 
 The recommender may recommend articles 'tangential' to the central subject of the subject article. These tangential aspects can provide a different perspective regarding the 'topic' of the article and may spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitous quality and a multifaceted representation of the article's subject matter.
 
@@ -143,5 +143,5 @@ Get recommendations by date. Only recommend articles in the corpus that are fair
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MjgxMDMyMl19
+eyJoaXN0b3J5IjpbLTUzMzA5ODAxMF19
 -->
