@@ -70,3 +70,6 @@ AREAS FOR FURTHER INVESTIGATION
 3. Using pre-trained word vectors such as FastText with Doc2Vec. 
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEyNjI3MjA2MDddfQ==
+-->
