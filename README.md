@@ -131,11 +131,11 @@ Once a user begins interacting with a site, this cold start clustering method co
 
 **2. Updating Doc2Vec Model**
 
-Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to signficant speed improvements. 
+Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to significant improvements in speed. 
 
-4. Pre-Trained Word Vectors
+**4. Pre-Trained Word Vectors**
 
-Using pre-trained word vectors such as FastText with Doc2Vec. 
+Using pre-trained word vectors, such as FastText, with Doc2Vec. 
 
 5. Article Recommendations by Date 
 
@@ -143,5 +143,5 @@ Get recommendations by date. Only recommend articles in the corpus that are fair
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjUzNjgzOV19
+eyJoaXN0b3J5IjpbMjA1MDkxNjE2NV19
 -->
