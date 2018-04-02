@@ -5,17 +5,56 @@ Many article recommendation systems currently use collaborative or content-based
 The main obstacle facing both systems is the need for user intertaction before the system can make useful recommendations tailored to the user's interests, which is often referred to as the 'cold start problem.' This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. Running the script will perform the following opertaions. 
 
 1. Download a corpus of news articles retrieved from a variety of newspapers and populat blogs that represent a wide variety of topics (business,politics,sports,technology,entertainment etc). (237 MB). 
-2. Create a Doc2Vec model from this corpus. Every article is represented by a 100 dimensional vector and occupies a 'point' in a vector space. The vector space represents a continuous space of semantic 'meanings' or 'topics' contained in the corpus. Broadly human intellible topics, such as business, sports etc, will occupy an 'area' within the vector space and articles touching on a given topic will be located near other articles touching on the same topic. 
+
+To keep this demostration package self contained with mininal additional set up, the corpus is a text file. In production, the corpus articles would likely be stored in a database. 
+
+2. Create a Doc2Vec model from this corpus. 
+
+Every article is represented by a 100 dimensional vector and occupies a 'point' in a vector space. The vector space represents a continuous space of semantic 'meanings' or 'topics' contained in the corpus. Broadly human intellible topics, such as business, sports etc, will occupy an 'area' within the vector space and articles touching on a given topic will be located near other articles touching on the same topic. 
+
 3. Download the user's chrome history for a given number of days - default 2 days. (package only works for mac and windows chrome browsers for demo purposes) 
-4. Filter the user history for articles that provide information about a user's interest. This filters out base web addresses, on the theory that specific links (articles) on a site will better indicate a user's interest. There are also a number of hardcoded filters in this demo. 
+
+4. Filter the user history for articles that provide information about a user's interest. 
+
+This filters out base web addresses, on the theory that specific links (articles) on a site will better indicate a user's interest. There are also a number of hardcoded filters in this demo. 
+
 5. Download all the articles in user's filtered history. 
+
 6. Create vectors for the articles in the user's filtered history using the doc2vec model created from the corpus. 
+
 7. Use KMeans to cluster the vectors from the user's history. (Default 15 clusters). 
-8. Get the most 'popular' vector clusters, as determined by the clusters with the greatest number of articles in them. The number of articles in a cluster serves as a representation for the level of user interest in the 'topic' of that cluster. The default identifies the top 33% clusters. (With defaults, the 5 most pouplar clusters of 15). 
+
+8. Get the most 'popular' vector clusters, as determined by the clusters with the greatest number of articles in them. 
+
+The number of articles in a cluster serves as a representation for the level of user interest in the 'topic' of that cluster. The default identifies the top 33% clusters. (With defaults, the 5 most pouplar clusters of 15). 
+
 9. Determine the vector centers of the most popular clusters. 
-10. Use the most popular vector centers to make article recommendations (links) for each cluster from the corpus using Doc2Vec's built-in similarity function, which uses cosine distance to determine similarity. (Default 20 articles per cluster). Duplicate links are filtered out. Recommended links are saved in a text file. 
+
+10. Use the most popular vector centers to make article recommendations (links) for each cluster from the corpus using Doc2Vec's built-in similarity function, which uses cosine distance to determine similarity. (Default 20 articles per cluster). 
+
+Duplicate links are filtered out. Recommended links are saved in a text file. 
+
 12. A flask server will start automatically and open a webpage with the links in a new tab/window.
 
-Runtime will depend on connection speed. First run will be considerably longer because it requires downloading the corpus and the creation of the Doc2Vec model. Subsequent runs will be quicker because only the articles from the user history have to be downloaded. With common consumer connection and computing speeds, first run will take about 15-20 minutes and subsequent runs will be about 5-8 minutes. 
+Runtime will depend on connection speed. First run will be considerably longer because it requires downloading the corpus and the creation of the Doc2Vec model. Subsequent runs will be quicker because only the articles from the user history will be downloaded. With common consumer connection and computing speeds, first run will take about 15-20 minutes and subsequent runs will be about 5-8 minutes. 
 
-The ideal number of recommendation clusters for a given corpus and a given number of articles can be investigated with the Elbow method, or other cluster evaluation methods mentioned in http://www.sthda.com/english/articles/29-cluster-validation-essentials/96-determining-the-optimal-number-of-clusters-3-must-know-methods/#elbow-method. For a given corpus, then, you can find the ideal number of clusters for a given number of articles in the user history. Example - for 100 articles, 10 clusters, for 500 articles, 20 clusters etc. Adjusting the numbe of clusters in this way relies on an assumption that, as the number of articles increases, there will likely be a larger number of user interests represented in the history, or that a user's interests are more 'fine grained' within a given broad topic. 
+The ideal number of recommendation clusters for a given corpus and a given number of articles in user history can be investigated with the Elbow method, or other cluster evaluation methods mentioned in http://www.sthda.com/english/articles/29-cluster-validation-essentials/96-determining-the-optimal-number-of-clusters-3-must-know-methods/#elbow-method. Example - for 100 articles, 10 clusters, for 500 articles, 20 clusters etc. Adjusting the numbe of clusters in this way relies on an assumption that, as the number of articles increases, there will likely be a larger number of user interests represented in the history, or that a user's interests are more 'fine grained' within a given broad topic. Getting the number of 'interests' and 'granularity' right will improve the quality of recommendations. 
+
+KEY ADVANTAGES
+
+1. No user interaction required. A user's interest profile can be modeled from their browser history and 'projected' into a given corpus. In practice, browser history could be obtained from browser plugin a user voluntary installs or from a vendor that tracks browsing behaviour through cookies. 
+
+2. User interests exist in the continous semantic space of the corpus. No tags, no trying to determine the percentage distributioon of an arbitrary number of 'topics.' 
+
+The continous nature of the semantic space leads to recommendations of articles that touch on various aspects within the subject article. This would possibly be more difficult to do with discrete topics, or tags, chosen by a rater. 
+
+For example, an article about instituting a 'sin tax' on alcohol and tobaco sales, will result in article recommendations about:
+a. Other sin taxes in that geographic region.
+b. Levels of alcohol and tabaco use and attempts to control it. 
+c. Dangers and costs related to alcohol and tabaco use. 
+d. How consumers respond to price changes. 
+e. Other hazardous consumer products and attempts to regulate them to enhance safety. 
+
+The continuos nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article, without the need to arbitrarily determine discrete, human intelligible topics. In a continous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what this articles is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be far more diffulty and, I suspect, fairly inadequate. 
+
+The recommender provides recommendations that may be tangential to the central subject of the article that are still interesting and valuable. These tangential aspects can provide a different perspective regarding the 'topic' of the article and spur further investigation in directions that may not have been readily apparent. 
