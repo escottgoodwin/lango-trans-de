@@ -4,7 +4,8 @@ This package is a demonstration of a 'cold start' article recommendation system 
 
 From the browsing history, the recommender generates a profile of the user's most important, recent interests. The recommender system can then use the profile to make article recommendations that most closely match the user's interest from a given article corpus . 
 
-image
+![Screen Shot
+](https://github.com/escottgoodwin/cold_start_d2v/blob/master/static/screenshot.png)
 
 **BACKGROUND**
 
@@ -179,5 +180,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjM1ODM3NTddfQ==
+eyJoaXN0b3J5IjpbLTEyMDIwNDc2OTZdfQ==
 -->
