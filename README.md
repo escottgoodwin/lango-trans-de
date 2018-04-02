@@ -20,9 +20,20 @@ Some content based recommenders have attempted to use latent Dirichlet allocatio
 
 The main obstacle facing both systems is the need for user interaction before the system can make useful recommendations tailored to the user's interests, which is often referred to as the 'cold start problem.' 
 
-COLD START D2V
+**COLD START D2V**
 
-This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. Running the script will perform the following opertaions. 
+This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. 
+
+TO RUN
+
+1. cd into cold_start_d2v directory
+2. run - python cold_start.py
+
+Once recommendations are generated, you can run the flask server to get the last set of recommendations by running:
+
+python cold_start_flask.py
+
+Running the script will perform the following operations. 
 
 1. Download a corpus of news articles retrieved from a variety of newspapers and populat blogs that represent a wide variety of topics (business,politics,sports,technology,entertainment etc). (237 MB). 
 
@@ -91,5 +102,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMDk0OTA1OV19
+eyJoaXN0b3J5IjpbNDk0NjY3NDk2XX0=
 -->
