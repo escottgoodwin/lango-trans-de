@@ -6,15 +6,23 @@ From the browsing history, the recommender generates a profile of the user's mos
 
 Many article recommendation systems currently use collaborative or content-based filtering or other methods that make recommendations based on the user's interaction with the site.  
 
-Collaborative Filter
+**Collaborative Filter**
 
 A collaborative filter recommendation system would create a user profile from the users previous interactions with the site and make recommendations based on the user profile's similarity to other user profiles. A collaborative system would recommend articles that other similar users had clicked on and/or rated, but which had not yet been viewed by the user. 
 
+**Content Based**
+
 Content based systems compare the similarity of articles, often based on article tags. If a user clicks on article with tags 'business,'marketing','sales', a content based recommender system would recommend articles with the similar tags. Relying on tagging in this way is a major limitation for content based systems in two ways. First, having to provide tags can be burdensome. Secondly, a collection of tags may not accurately represent an article's subject matter. An article may have too few tags to convey the nuance of it's subject matter, or the tags themselves may be too general to use in making recommendations. Also, basic tagging systems weight all tags equally, so we may not get a sense of what the article is really about. A marketing article may use a example from baseball in one paragraph, but be tagged 'maketing', 'baseball.' This could lead a content based recommender to recommend articles about baseball, even though the article is really about marketing. 
+
+ **Latent Dirichlet Allocation (LDA)**
 
 Some content based recommenders have attempted to use latent Dirichlet allocation (LDA), such as LDA2VEC, to provide tag weighting to more accurately represent what percentage of each subject is in a given article. However, even this method is limited by the need to specify a certain number of topics to represent the article. 
 
-The main obstacle facing both systems is the need for user interaction before the system can make useful recommendations tailored to the user's interests, which is often referred to as the 'cold start problem.' This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. Running the script will perform the following opertaions. 
+The main obstacle facing both systems is the need for user interaction before the system can make useful recommendations tailored to the user's interests, which is often referred to as the 'cold start problem.' 
+
+C
+
+This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. Running the script will perform the following opertaions. 
 
 1. Download a corpus of news articles retrieved from a variety of newspapers and populat blogs that represent a wide variety of topics (business,politics,sports,technology,entertainment etc). (237 MB). 
 
@@ -83,5 +91,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODgzOTUzMTddfQ==
+eyJoaXN0b3J5IjpbODk2ODAwMjg4XX0=
 -->
