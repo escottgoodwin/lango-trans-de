@@ -101,13 +101,13 @@ USING A CUSTOM CORPUS
 
 You can use a custom corpus of articles with the following format:
 
-[
-{'article':'article1 text string','date':'date1 string','link':'http://www.link1.com'},
-{'article':'article2 text string','date':'date2 string','link':'http://www.link2.com'},
-...
-]
+    [
+    {'article':'article1 text string','date':'date1 string','link':'http://www.link1.com'},
+    {'article':'article2 text string','date':'date2 string','link':'http://www.link2.com'},
+    ...
+    ]
 
-Then, in the main function, 
+Then, in the main function, change the corpus_url variable to the location of your properly formatted corpus. 
 
 **KEY ADVANTAGES**
 
@@ -168,6 +168,7 @@ A master interest profile developed from this model may differ from a user inter
 Individual article recommendations (links) could be ranked in a single list by taking the cosine distance and weighting it by the popularity of the cluster the article belongs to. Links with high cosine similarity scores (or small cosine distances) are considered highly related to the 'center' of user's interest. However, some interests are more popular or more important than others. Therefore,  a master ranking could be developed, for example, where the first recommendation in the fourth most popular category cluster would be listed above the fifteenth recommendation from the most popular category cluster. 
 
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNzIyNjIyOV19
+eyJoaXN0b3J5IjpbMTc2MTE5MTQzOF19
 -->
