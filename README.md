@@ -63,7 +63,7 @@ Create vectors for the articles in the user's filtered history using the Doc2Vec
 
 **7. Cluster History Vectors**
 
-Use KMeans to cluster the vectors from the user's history. (Default 15 clusters). 
+Use KMeans clustering to cluster the vectors from the user's history. (Default 15 clusters). 
 
 **8. Get Popular Clusters**
 
@@ -157,5 +157,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxOTM3OTgwMV19
+eyJoaXN0b3J5IjpbNDIzNTUxNTk5XX0=
 -->
