@@ -55,15 +55,17 @@ Filter the user history for articles that provide information about a user's int
 
 This filters out base web addresses, on the theory that specific links (articles) on a site will better indicate a user's interest. There are also a number of hardcoded filters in this demo. 
 
-5. Download History Articles
+**5. Download History Articles**
 
 Download all the articles in user's filtered history. These articles will also be translated into the user's native language. Since Doc2Vec relies on a comprehensive vocabulary of the corpus to create the semantic vector space (topic/subject space), it is important that the browsing history articles are monolingual. We don't want business articles in German to occupy a different vector space 'area' than business articles in English for the purposes of modeling user interests. 
 
-6. Create vectors for the articles in the user's filtered history using the doc2vec model created from the corpus. 
+**6. Generate Vectors for History Articles**
+
+Create vectors for the articles in the user's filtered history using the doc2vec model created from the corpus. 
 
 7. Use KMeans to cluster the vectors from the user's history. (Default 15 clusters). 
 
-8. Get the most 'popular' vector clusters, as determined by the clusters with the greatest number of articles in them. 
+9. Get the most 'popular' vector clusters, as determined by the clusters with the greatest number of articles in them. 
 
 The number of articles in a cluster serves as a representation for the level of user interest in the 'topic' of that cluster. The default identifies the top 33% clusters. (With defaults, the 5 most pouplar clusters of 15). 
 
@@ -110,5 +112,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NDQzNzg4NF19
+eyJoaXN0b3J5IjpbLTE3MTcwODkwNzBdfQ==
 -->
