@@ -99,7 +99,8 @@ Adjusting the number of clusters in this way relies on an assumption that, as th
 
 USING A CUSTOM CORPUS
 
-You can use a custom corpus 
+You can use a custom corpus of articles with the following format:
+
 
 **KEY ADVANTAGES**
 
@@ -161,5 +162,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzc4ODA3MTIxXX0=
+eyJoaXN0b3J5IjpbNDY2MDQzNDE4XX0=
 -->
