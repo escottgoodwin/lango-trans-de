@@ -35,13 +35,15 @@ python cold_start_flask.py
 
 Running the script will perform the following operations. 
 
-1. Download a corpus of a week's worth of news articles retrieved from a variety of newspapers and popular blogs that represent a wide variety of topics(business,politics,sports,technology,entertainment etc). (237 MB). 
+**1.  Download Corpus**
+
+Download a corpus of a week's worth of news articles retrieved from a variety of newspapers and popular blogs that represent a wide variety of topics(business,politics,sports,technology,entertainment etc). (237 MB). 
 
 To keep this demostration package self contained with mininal additional set up, the corpus is a text file. In production, the corpus articles would likely be stored in a database. 
 
-2. Create a Doc2Vec model from this corpus. 
+**2. Create a Doc2Vec model from this corpus.** 
 
-Every article is represented by a 100 dimensional vector and occupies a 'point' in a vector space. The vector space represents a continuous space of semantic 'meanings' or 'topics' contained in the corpus. Broadly human intellible topics, such as business, sports etc, will occupy an 'area' within the vector space and articles touching on a given topic will be located near other articles touching on the same topic. 
+Every article is represented by a 100 dimensional vector and occupies a 'point' in a vector space. The vector space represents a continuous space of semantic 'meanings' or 'topics' contained in the corpus. Broadly human intellible topics - such as business, sports etc -  will occupy an 'area' within the vector space and articles touching on a given topic will be located near other articles touching on the same topic. 
 
 3. Download the user's chrome history for a given number of days - default 2 days. (package only works for mac and windows chrome browsers for demo purposes) 
 
@@ -102,5 +104,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MTk3NjU1Nl19
+eyJoaXN0b3J5IjpbLTEyNzkzNjEyODZdfQ==
 -->
