@@ -1,3 +1,5 @@
+**COLD START D2V**
+
 This package is a demonstration of a 'cold start' article recommendation system that utilizes a user's browsing history to perform Kmeans clustering of Doc2Vec vectors. 
 
 From the browsing history, the recommender generates a profile of the user's most important, recent interests. The recommender system can then use the profile to make article recommendations that most closely match the user's interest from a given article corpus . 
@@ -26,7 +28,7 @@ The main obstacle facing both systems is the need for user interaction before th
 
 This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. 
 
-TO RUN
+**TO RUN**
 
     1. cd into cold_start_d2v directory
     2. run - python cold_start.py
@@ -177,5 +179,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjMzMTU2NDddfQ==
+eyJoaXN0b3J5IjpbLTEwMjM1ODM3NTddfQ==
 -->
