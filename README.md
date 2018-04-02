@@ -29,9 +29,7 @@ TO RUN
     1. cd into cold_start_d2v directory
     2. run - python cold_start.py
 
-Once recommendations are generated, you can run the flask server to get the last set of recommendations by running:
-
-python cold_start_flask.py
+Once recommendations are generated, you can run the flask server to get the last set of recommendations by running `python cold_start_flask.py`.
 
 Running the script will perform the following operations. 
 
@@ -39,7 +37,7 @@ Running the script will perform the following operations.
 
 Download a corpus of a week's worth of news articles retrieved from a variety of newspapers and popular blogs that represent a wide variety of topics(business,politics,sports,technology,entertainment etc). (237 MB). 
 
-To keep this demostration package self contained with mininal additional set up, the corpus is a text file. In production, the corpus articles would likely be stored in a database. 
+To keep this demonstration package self contained with minimal additional set up, the corpus is a text file. In production, the corpus articles would likely be stored in a database. 
 
 **2. Create a Doc2Vec model from this corpus.** 
 
@@ -143,5 +141,5 @@ Get recommendations by date. Only recommend articles in the corpus that are fair
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNDkxNDUzOF19
+eyJoaXN0b3J5IjpbMzUzODI5MjQ3XX0=
 -->
