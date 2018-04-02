@@ -105,7 +105,9 @@ Adjusting the number of clusters in this way relies on an assumption that, as th
 
 A user's interest profile can be modeled from their browser history and 'projected' into a given corpus. In practice, browser history could be obtained from browser plugin a user voluntary installs or from a vendor that tracks browsing behaviour through cookies. 
 
-2. User interests exist in the continous semantic space of the corpus. No tags, no trying to determine the percentage distributioon of an arbitrary number of 'topics.' 
+2. User Interests in a Continuous Vector Space
+
+User interests exist in the continuous semantic space of the corpus. No tags, no trying to determine the percentage distribution of an arbitrary number of 'topics.' 
 
 The continous nature of the semantic space leads to recommendations of articles that touch on various aspects within the subject article. This would prove to be more difficult with discrete topics, or tags, chosen by a rater. 
 
@@ -130,5 +132,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzk5OTIwOTJdfQ==
+eyJoaXN0b3J5IjpbLTE4ODg3NDk1MTBdfQ==
 -->
