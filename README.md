@@ -69,7 +69,7 @@ Use KMeans clustering to cluster the vectors from the user's history. (Default 1
 
 Get the most 'popular' vector clusters, as determined by the clusters with the greatest number of articles in them. 
 
-The number of articles in a cluster serves as a representation for the level of user interest in the 'topic' of that cluster. The default identifies the top 33% clusters. (With defaults, the 5 most pouplar clusters of 15 clusters). 
+The number of articles in a cluster serves as a representation for the level of user interest in the 'topic' of that cluster. The default identifies the top 33% of clusters with the most articles. (With defaults, the 5 most popular clusters of 15 clusters). 
 
 **9. Popular Cluster Vector Centers**
 
@@ -157,5 +157,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDIzNTUxNTk5XX0=
+eyJoaXN0b3J5IjpbNzU4OTQwNzVdfQ==
 -->
