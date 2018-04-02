@@ -55,7 +55,7 @@ This filters out base web addresses, on the theory that specific articles on a s
 
 **5. Download History Articles**
 
-Download all the articles in user's filtered history. These articles will also be translated into the user's native language. Since Doc2Vec relies on a comprehensive vocabulary of the corpus to create the semantic vector space (topic/subject space), it is important that the browsing history articles are monolingual. We don't want business articles in German to occupy a different vector space 'area' than business articles in English when modeling user interests. For the purpose of modelling user interests, all business articles should be located near one another in the vector space. 
+Download all the articles in user's filtered history. These articles will also be translated into the user's native language. Since Doc2Vec relies on a comprehensive vocabulary of the corpus to create the semantic vector space (topic/subject space), it is important that the browsing history articles are monolingual. We don't want business articles in German to occupy a different vector space 'area' than business articles in English when modeling user interests. For the purpose of modelling user interests, all business articles should be located near one another in the vector space. In certain use cases, however, one may want to keep interests in one language separate from interests in another language. 
 
 **6. Generate Vectors for  Articles in History**
 
@@ -157,5 +157,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3ODI4NjE1N119
+eyJoaXN0b3J5IjpbMTQxOTM3OTgwMV19
 -->
