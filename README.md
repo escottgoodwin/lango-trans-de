@@ -170,10 +170,10 @@ A master interest profile developed from this model may differ from a user inter
 
 **8. Single Rank of Recommendations For All Category Clusters**
 
-Individual article recommendations (links) could be ranked in a single list by taking the cosine distance and weighting it by the popularity of the cluster the article belongs to. Links with high cosine similarity scores (or small cosine distances) are considered highly related to the 'center' of user's interest. However, some interests are more popular or more important than others. Therefore,  a master ranking could be developed, for example, where the first recommendation in the fourth most popular category cluster would be listed above the fifteenth recommendation from the most popular category cluster. 
+Individual article recommendations could be ranked in a single list by taking the cosine distance and weighting it by the popularity of the cluster the article belongs to. Links with high cosine similarity scores (or small cosine distances) are considered highly related to the 'center' of user's interest. However, some interests are more popular or more important than others. Therefore,  a master ranking could be developed, for example, where the first recommendation in the fourth most popular category cluster would be listed above the fifteenth recommendation from the most popular category cluster. 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1NjEwNDk3Ml19
+eyJoaXN0b3J5IjpbMTk2OTg2MDcwMF19
 -->
