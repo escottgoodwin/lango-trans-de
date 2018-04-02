@@ -129,11 +129,16 @@ The recommender may recommend articles 'tangential' to the central subject of th
 
 Once a user begins interacting with a site, this cold start clustering method could be integrated and/or refined with collaborative filtering methods based on user profiles generated from website interaction data. 
 
-2. Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to signficant speed improvements. 
+2. Updating Doc2Vec Model
 
-3. Using pre-trained word vectors such as FastText with Doc2Vec. 
+Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to signficant speed improvements. 
 
-4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
+4. Pre-Trained Word Vectors
+
+Using pre-trained word vectors such as FastText with Doc2Vec. 
+
+5. Article Recommendations by Date 
+Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA1MTkwNzUxXX0=
+eyJoaXN0b3J5IjpbLTExODQzODk4MjhdfQ==
 -->
