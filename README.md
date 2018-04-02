@@ -49,12 +49,15 @@ Every article is represented by a 100 dimensional vector and occupies a 'point' 
  
  Download the user's chrome history for a given number of days - default 2 days. (package only works for mac and windows chrome browsers for demo purposes) 
 
-4. 
+**4.  Filter Browsing History**
+
 Filter the user history for articles that provide information about a user's interest. 
 
 This filters out base web addresses, on the theory that specific links (articles) on a site will better indicate a user's interest. There are also a number of hardcoded filters in this demo. 
 
-5. Download all the articles in user's filtered history. 
+5. Download History Articles
+
+Download all the articles in user's filtered history. These articles
 
 6. Create vectors for the articles in the user's filtered history using the doc2vec model created from the corpus. 
 
@@ -107,5 +110,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNzAyOTE4N119
+eyJoaXN0b3J5IjpbMTIzMTUxODI2OV19
 -->
