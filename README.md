@@ -145,9 +145,9 @@ Get recommendations by date. Only recommend articles in the corpus that are rece
 
 Develop/Integrate a method to automatically determine ideal number of clusters for corpus/number of articles on the fly. 
 
-7. Master User Interest Profile 
+**7. Master User Interest Profile** 
 
-Currently, a user's interests are only modeled from past X number of days of browsing history. While a user's most recent interests are important for getting and maintaining interest in a given corpus at a given moment in time, developing a master profile including all the user's browsing history would be valuable as well. One could then make additional recommendations based on 'long tail' interests. This would also help a website's executives understand their users' long-term or recurrent interests. Executives could use that knowledge to determine editorial direction and various strategic business initiatives, such as market positioning. 
+Currently, a user's interests are only modeled from past X number of days of browsing history. While a user's most recent interests are important for getting and maintaining interest in a given corpus at a given moment in time, developing a master profile including all the user's browsing history would be valuable as well. One could then make additional recommendations based on 'long tail' interests. This would also help a website's executives understand their users' long-term or recurrent interests. Executives could use that knowledge to determine editorial direction and inform various strategic business initiatives, such as market positioning. 
 
 **8. Single Rank of Recommendations For All Category Clusters**
 
@@ -155,5 +155,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTAxNDU0MjVdfQ==
+eyJoaXN0b3J5IjpbLTIwODY1NjA5OTRdfQ==
 -->
