@@ -109,6 +109,9 @@ You can use a custom corpus of articles with the following format:
 
 Then, in the main function, change the corpus_url variable to the location of your properly formatted corpus. 
 
+    def main():
+    		corpus_url = 	'https://www.corpuslocation'
+
 **KEY ADVANTAGES**
 
 **1. No user interaction required.** 
@@ -170,5 +173,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2MTE5MTQzOF19
+eyJoaXN0b3J5IjpbLTEzNTMzNTQ2NzFdfQ==
 -->
