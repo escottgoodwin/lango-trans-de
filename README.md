@@ -71,11 +71,14 @@ Use KMeans to cluster the vectors from the user's history. (Default 15 clusters)
 
 Get the most 'popular' vector clusters, as determined by the clusters with the greatest number of articles in them. 
 
-The number of articles in a cluster serves as a representation for the level of user interest in the 'topic' of that cluster. The default identifies the top 33% clusters. (With defaults, the 5 most pouplar clusters of 15). 
+The number of articles in a cluster serves as a representation for the level of user interest in the 'topic' of that cluster. The default identifies the top 33% clusters. (With defaults, the 5 most pouplar clusters of 15 clusters). 
 
-9. Determine the vector centers of the most popular clusters. 
+**9. Popular Cluster Centers**
 
-10. Use the most popular vector centers to make article recommendations (links) for each cluster from the corpus using Doc2Vec's built-in similarity function, which uses cosine distance to determine similarity. (Default 20 articles per cluster). 
+Determine the vector centers of the most popular clusters. 
+
+11. Recommend Articles From Popular Vector C
+Use the most popular vector centers to make article recommendations (links) for each cluster from the corpus using Doc2Vec's built-in similarity function, which uses cosine distance to determine similarity. (Default 20 articles per cluster). 
 
 Duplicate links are filtered out. Recommended links are saved in a text file. 
 
@@ -116,5 +119,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MjE3MTg1MF19
+eyJoaXN0b3J5IjpbMTAyMzcwMzU0M119
 -->
