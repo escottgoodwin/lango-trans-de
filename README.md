@@ -141,9 +141,11 @@ Using pre-trained word vectors, such as FastText, with Doc2Vec.
 
 Get recommendations by date. Only recommend articles in the corpus that are recent. 
 
-6. Ideal Number of Category 
+6. Ideal Number of Recommendation Category Clusters
+
+Develop/Integrate a method to automatically determine ideal number of clusters for corpus/number of articles on the fly. 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc2NjM3MjEzXX0=
+eyJoaXN0b3J5IjpbLTE2MzE5MDQ2OTddfQ==
 -->
