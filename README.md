@@ -46,7 +46,7 @@ KEY ADVANTAGES
 
 2. User interests exist in the continous semantic space of the corpus. No tags, no trying to determine the percentage distributioon of an arbitrary number of 'topics.' 
 
-The continous nature of the semantic space leads to recommendations of articles that touch on various aspects within the subject article. This would possibly be more difficult to do with discrete topics, or tags, chosen by a rater. 
+The continous nature of the semantic space leads to recommendations of articles that touch on various aspects within the subject article. This would prove to be more difficult with discrete topics, or tags, chosen by a rater. 
 
 For example, an article about instituting a 'sin tax' on alcohol and tobaco sales, will result in article recommendations about:
 a. Other sin taxes in that geographic region.
@@ -55,6 +55,6 @@ c. Dangers and costs related to alcohol and tabaco use.
 d. How consumers respond to price changes. 
 e. Other hazardous consumer products and attempts to regulate them to enhance safety. 
 
-The continuos nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article, without the need to arbitrarily determine discrete, human intelligible topics. In a continous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what this articles is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be far more diffulty and, I suspect, fairly inadequate. 
+The continous nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article, without the need to arbitrarily determine discrete, human intelligible topics. In a continous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what this articles is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be more difficult and, I suspect, lead to less effective recommendations. 
 
-The recommender provides recommendations that may be tangential to the central subject of the article that are still interesting and valuable. These tangential aspects can provide a different perspective regarding the 'topic' of the article and spur further investigation in directions that may not have been readily apparent. 
+The recommender provides recommendations that may be tangential to the central subject of the article that are still interesting and valuable. These tangential aspects can provide a different perspective regarding the 'topic' of the article and spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitious quality. 
