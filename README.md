@@ -121,7 +121,7 @@ For example, an article about instituting a 'sin tax' on alcohol and tobacco sal
 
 The continuous nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article, without the need to arbitrarily determine discrete, human intelligible topics. In a continuous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what the 'sin tax' article is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be more difficult and, I suspect, lead to less effective recommendations. 
 
-The recommender provides recommendations that may be tangential to the central subject of the article that are still interesting and valuable. These tangential aspects can provide a different perspective regarding the 'topic' of the article and spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitious quality. 
+The recommender may also provide recommendations that are tangential to the central subject of the article that are still interesting and valuable. These tangential aspects can provide a different perspective regarding the 'topic' of the article and spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitious quality. 
 
 AREAS FOR FURTHER INVESTIGATION
 
@@ -133,5 +133,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTg3MzM1OTJdfQ==
+eyJoaXN0b3J5IjpbMTY0OTA1NjMyN119
 -->
