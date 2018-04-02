@@ -45,7 +45,7 @@ Every article is represented by a 100 dimensional vector and occupies a 'point' 
 
 **3. Download Browsing History**
  
- Download the user's chrome history for a given number of days - default 2 days. (package only works for mac and windows chrome browsers for demo purposes) 
+ Download the user's chrome history for a given number of days - default 2 days. (This package only works for Mac and Windows chrome browsers for demo purposes). 
 
 **4.  Filter Browsing History**
 
@@ -157,5 +157,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MjI2MTk3N119
+eyJoaXN0b3J5IjpbMTEwMTQ1MjA3OV19
 -->
