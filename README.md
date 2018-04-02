@@ -145,7 +145,9 @@ Get recommendations by date. Only recommend articles in the corpus that are rece
 
 Develop/Integrate a method to automatically determine ideal number of clusters for corpus/number of articles on the fly. 
 
+7. Master User Interest Profile 
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzE5MDQ2OTddfQ==
+eyJoaXN0b3J5IjpbLTU5MDQ3ODQ0Ml19
 -->
