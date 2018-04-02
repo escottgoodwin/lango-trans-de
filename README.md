@@ -43,11 +43,14 @@ To keep this demostration package self contained with mininal additional set up,
 
 **2. Create a Doc2Vec model from this corpus.** 
 
-Every article is represented by a 100 dimensional vector and occupies a 'point' in a vector space. The vector space represents a continuous space of semantic 'meanings' or 'topics' contained in the corpus. Broadly human intellible topics - such as business, sports etc -  will occupy an 'area' within the vector space and articles touching on a given topic will be located near other articles touching on the same topic. 
+Every article is represented by a 100 dimensional vector and occupies a 'point' in a vector space. The vector space represents a continuous space of semantic 'meanings' or 'topics' contained in the corpus. Broadly human intelligible topics - such as business, sports etc -  will occupy an 'area' within the vector space and articles related to a given topic will be located near other articles related to the same topic. 
 
-3. Download the user's chrome history for a given number of days - default 2 days. (package only works for mac and windows chrome browsers for demo purposes) 
+**3. Download Browsing History**
+ 
+ Download the user's chrome history for a given number of days - default 2 days. (package only works for mac and windows chrome browsers for demo purposes) 
 
-4. Filter the user history for articles that provide information about a user's interest. 
+4. 
+Filter the user history for articles that provide information about a user's interest. 
 
 This filters out base web addresses, on the theory that specific links (articles) on a site will better indicate a user's interest. There are also a number of hardcoded filters in this demo. 
 
@@ -104,5 +107,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzkzNjEyODZdfQ==
+eyJoaXN0b3J5IjpbLTQyNzAyOTE4N119
 -->
