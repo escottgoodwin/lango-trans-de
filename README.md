@@ -1,6 +1,6 @@
 This package is a demonstration of a 'cold start' article recommendation system that utilizes a user's browsing history to perform Kmeans clustering of Doc2Vec vectors. 
 
-From the browsing history, the reco generates a profile of the user's most important recent interests. The recommender system can then use the profile to make article recommendations from a give corpus that most closely match the user's interest. 
+From the browsing history, the recommender generates a profile of the user's most important, recent interests. The recommender system can then use the profile to make article recommendations that most closely match the user's interest from a given article corpus . 
 
 **BACKGROUND**
 
@@ -75,5 +75,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4OTE5NDQzOV19
+eyJoaXN0b3J5IjpbLTEyNDY5NDkzMTNdfQ==
 -->
