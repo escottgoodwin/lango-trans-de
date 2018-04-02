@@ -109,7 +109,7 @@ A user's interest profile can be modeled from their browser history and 'project
 
 User interests exist in the continuous semantic space of the corpus. No tags, no trying to determine the distribution percentage  of an arbitrary number of 'topics' - 20% Marketing, 45% Sales, 30% Data Science, 5% Hospitals. 
 
-The continuous nature of the semantic space leads to recommendations that are related to various aspects within the subject article that are no. This would prove to be more difficult with discrete topics, or tags, chosen by a rater. 
+The continuous nature of the semantic space leads to recommendations that are related to various aspects within the subject article that are non cleanly discretely human intelligible. This sort of recommending would prove to be more difficult with discrete topics, or tags, chosen by a rater. 
 
 For example, an article about instituting a 'sin tax' on alcohol and tobaco sales, will result in article recommendations about:
 a. Other sin taxes in that geographic region.
@@ -132,5 +132,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzNTEzMzU3OF19
+eyJoaXN0b3J5IjpbMTU5MDc0MDg0NF19
 -->
