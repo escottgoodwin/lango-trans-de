@@ -111,12 +111,13 @@ User interests exist in the continuous semantic space of the corpus. No tags, no
 
 The continuous nature of the semantic space leads to recommendations that are related to various aspects within the subject article that are non cleanly discretely human intelligible. This sort of recommending would prove to be more difficult with discrete topics, or tags, chosen by a rater. 
 
-For example, an article about instituting a 'sin tax' on alcohol and tobaco sales, will result in article recommendations about:
-a. Other sin taxes in that geographic region.
-b. Levels of alcohol and tabaco use and attempts to control it. 
-c. Dangers and costs related to alcohol and tabaco use. 
-d. How consumers respond to price changes. 
-e. Other hazardous consumer products and attempts to regulate them to enhance safety. 
+For example, an article about instituting a 'sin tax' on alcohol and tobacco sales, will result in article recommendations about:
+
+1. Other sin taxes in that geographic region.
+2. Levels of alcohol and tobacco use and attempts to control it. 
+3. Dangers and costs related to alcohol and tobacco use. 
+4. How consumers respond to price changes. 
+5. Other hazardous consumer products and attempts to regulate them to enhance safety. 
 
 The continous nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article, without the need to arbitrarily determine discrete, human intelligible topics. In a continous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what this articles is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be more difficult and, I suspect, lead to less effective recommendations. 
 
@@ -132,5 +133,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5MDc0MDg0NF19
+eyJoaXN0b3J5IjpbLTE2OTk5NjI1MTFdfQ==
 -->
