@@ -123,9 +123,11 @@ The continuous nature of the vector space enhances the recommender's ability to 
 
 The recommender may recommend articles 'tangential' to the central subject of the subject article. These tangential aspects can provide a different perspective regarding the 'topic' of the article and may spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitous quality and a multifaceted representation of the article's subject matter.
 
-AREAS FOR FURTHER INVESTIGATION
+**AREAS FOR FURTHER INVESTIGATION**
 
-1. Integration with with other recommender methods. Once a user begins interacting with a site, this cold start clustering method could be integrated and/or refined with collaborative filtering methods based on user profiles generated from website interaction data. 
+1. Integration With Other Types of Recommenders 
+
+Once a user begins interacting with a site, this cold start clustering method could be integrated and/or refined with collaborative filtering methods based on user profiles generated from website interaction data. 
 
 2. Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to signficant speed improvements. 
 
@@ -133,5 +135,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjI3MTA5ODJdfQ==
+eyJoaXN0b3J5IjpbNDA1MTkwNzUxXX0=
 -->
