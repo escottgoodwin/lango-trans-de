@@ -83,7 +83,7 @@ Duplicate links are filtered out. Recommended links are saved in a text file.
 
 **12. Display Recommendations in Flask Website**
 
-A flask server will start automatically and open a webpage with the recommended links for each category cluster links in a new tab/window. A chart 
+A flask server will start automatically and open a webpage with the recommended links for each category cluster links in a new tab/window. A histogram with the number of articles in every cluster appears at the bottom. 
 
 **Runtime**
 
@@ -157,5 +157,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI5ODQxMDA2XX0=
+eyJoaXN0b3J5IjpbMTUzMDY1NDc3OV19
 -->
