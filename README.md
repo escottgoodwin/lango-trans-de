@@ -95,11 +95,15 @@ According to gensim's documentation, using a C compiler would significantly opti
 
 **Number of Recommendation Clusters**
 
-The ideal number of recommendation clusters for a given corpus and a given number of articles in user history can be investigated with the Elbow method, or other cluster evaluation methods mentioned in [ Determining The Optimal Number Of Clusters: 3 Must Know Methods](http://www.sthda.com/english/articles/29-cluster-validation-essentials/96-determining-the-optimal-number-of-clusters-3-must-know-methods/#elbow-method). Example - for 100 articles, 10 clusters, for 500 articles, 20 clusters etc. Adjusting the number of clusters in this way relies on an assumption that, as the number of articles increases, there will likely be a larger number of user interests represented in the history, or that a user's interests are more 'fine grained' within a given broad topic. Getting the number of 'interests' and 'granularity' right will improve the quality of recommendations. 
+The ideal number of recommendation clusters for a given corpus and a given number of articles in user history can be investigated with the Elbow method, or other cluster evaluation methods mentioned in [ Determining The Optimal Number Of Clusters: 3 Must Know Methods](http://www.sthda.com/english/articles/29-cluster-validation-essentials/96-determining-the-optimal-number-of-clusters-3-must-know-methods/#elbow-method). Example - for 100 articles, 10 clusters, for 500 articles, 20 clusters etc. 
 
-KEY ADVANTAGES
+Adjusting the number of clusters in this way relies on an assumption that, as the number of articles increases, there will likely be a larger number of user interests represented in the history, or that a user's interests are more 'fine grained' within a given broad topic. Getting the number of 'interests' and 'granularity' right will improve the quality of recommendations. 
 
-1. No user interaction required. A user's interest profile can be modeled from their browser history and 'projected' into a given corpus. In practice, browser history could be obtained from browser plugin a user voluntary installs or from a vendor that tracks browsing behaviour through cookies. 
+**KEY ADVANTAGES**
+
+1. No user interaction required. 
+
+A user's interest profile can be modeled from their browser history and 'projected' into a given corpus. In practice, browser history could be obtained from browser plugin a user voluntary installs or from a vendor that tracks browsing behaviour through cookies. 
 
 2. User interests exist in the continous semantic space of the corpus. No tags, no trying to determine the percentage distributioon of an arbitrary number of 'topics.' 
 
@@ -126,5 +130,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzNDA2NzU2NF19
+eyJoaXN0b3J5IjpbLTExMzk5OTIwOTJdfQ==
 -->
