@@ -99,7 +99,7 @@ Adjusting the number of clusters in this way relies on an assumption that, as th
 
 **USING A CUSTOM CORPUS**
 
-You can use a custom corpus of articles with the following format:
+You can use a custom corpus of articles in the following format:
 
     [
     {'article':'article1 text string','date':date1 string','link':'http://www.link1.com'},
@@ -109,7 +109,7 @@ You can use a custom corpus of articles with the following format:
 
 It is important to have links for each article. 
 
-Then, in the main function, change the corpus_url variable to the location of your properly formatted corpus. 
+Then, in the main function, change the `corpus_url` variable to the location of your properly formatted corpus. 
 
     def main():
     	corpus_url = 'https://location_of_your_corpus'
@@ -175,5 +175,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU5Mzg0NzhdfQ==
+eyJoaXN0b3J5IjpbMjAwNjIyNDYwN119
 -->
