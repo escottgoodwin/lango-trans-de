@@ -141,17 +141,19 @@ Using pre-trained word vectors, such as FastText, with Doc2Vec.
 
 Get recommendations by date. Only recommend articles in the corpus that are recent. 
 
-6. Ideal Number of Recommendation Category Clusters
+**6. Ideal Number of Recommendation Category Clusters**
 
 Develop/Integrate a method to automatically determine ideal number of clusters for corpus/number of articles on the fly. 
 
 7. Master User Interest Profile 
 
-8. Single Rank of Recommendations For All Category Clusters
+Currently, a user's interests are only modeled from past X number of days of browsing history.
 
-Individual article recommendations (links) could be ranked in a single list by taking the cosine distance and weighting it by the popularity of the cluster the article link belongs to. Links with high cosine similarity scores (or small cosine distances) are considered highly related to the 'center' of user's interest. However, some interests are more popular or more important than others. Therefore,  a master ranking could be developed where the first recommendation in the fourth most popular category cluster would be listed above the fifteenth recommendation from the most  category cluster. 
+**8. Single Rank of Recommendations For All Category Clusters**
+
+Individual article recommendations (links) could be ranked in a single list by taking the cosine distance and weighting it by the popularity of the cluster the article link belongs to. Links with high cosine similarity scores (or small cosine distances) are considered highly related to the 'center' of user's interest. However, some interests are more popular or more important than others. Therefore,  a master ranking could be developed where the first recommendation in the fourth most popular category cluster would be listed above the fifteenth recommendation from the most popular category cluster. 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMTk5NzY0Nl19
+eyJoaXN0b3J5IjpbMjA3NjM5OTkxNV19
 -->
