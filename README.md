@@ -51,11 +51,11 @@ Every article is represented by a 100 dimensional vector and occupies a 'point' 
 
 Filter the user history for articles that provide information about a user's interest. 
 
-This filters out base web addresses, on the theory that specific links (articles) on a site will better indicate a user's interest. There are also a number of hardcoded filters in this demo. 
+This filters out base web addresses, on the theory that specific articles on a site will better indicate a user's interest. There are also a number of hardcoded filters in this demo. 
 
 **5. Download History Articles**
 
-Download all the articles in user's filtered history. These articles will also be translated into the user's native language. Since Doc2Vec relies on a comprehensive vocabulary of the corpus to create the semantic vector space (topic/subject space), it is important that the browsing history articles are monolingual. We don't want business articles in German to occupy a different vector space 'area' than business articles in English for the purposes of modeling user interests. 
+Download all the articles in user's filtered history. These articles will also be translated into the user's native language. Since Doc2Vec relies on a comprehensive vocabulary of the corpus to create the semantic vector space (topic/subject space), it is important that the browsing history articles are monolingual. We don't want business articles in German to occupy a different vector space 'area' than business articles in English when modeling user interests. A
 
 **6. Generate Vectors for  Articles in History**
 
@@ -157,5 +157,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwMTQ1MjA3OV19
+eyJoaXN0b3J5IjpbLTI2Njk3OTc5NF19
 -->
