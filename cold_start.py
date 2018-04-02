@@ -203,10 +203,14 @@ def rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num):
 
 def main():
     #location of corpus
+    ## to use a custom corpus:
+    # corpus needs to be in this format - {'article':'article text string','date':'today's date string','link':'http://www.link.com'}
+    # you convert a list of articles into this format with dummy values by calling - format_arts(articles)
     corpus_url = 'https://www.dropbox.com/s/m25u619i207r7f2/news_arts1.txt?dl=1'
     # corpus needs to be a format - {'article':'article text string','date':'today's date string','link':'http://www.nolink.com'}
     # you convert a list of articles into this format with dummy values  by calling format_arts(articles)
-    # majority language for browsing history - history needs to be monolingual - foreign articles will be translated to native detect_language
+
+    # majority or native language for browsing history - history needs to be monolingual - foreign articles will be translated to native detect_language
     lang = 'en'
     ## doc2vec model name for corpus
     model_name = 'news'
