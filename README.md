@@ -35,7 +35,7 @@ python cold_start_flask.py
 
 Running the script will perform the following operations. 
 
-1. Download a corpus of news articles retrieved from a variety of newspapers and popular blogs that represent a wide variety of topics for about a week's time(business,politics,sports,technology,entertainment etc). (237 MB). 
+1. Download a corpus of a week's worth of news articles retrieved from a variety of newspapers and popular blogs that represent a wide variety of topics(business,politics,sports,technology,entertainment etc). (237 MB). 
 
 To keep this demostration package self contained with mininal additional set up, the corpus is a text file. In production, the corpus articles would likely be stored in a database. 
 
@@ -102,5 +102,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM0NDYwNDZdfQ==
+eyJoaXN0b3J5IjpbMTg1MTk3NjU1Nl19
 -->
