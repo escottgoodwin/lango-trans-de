@@ -20,7 +20,7 @@ Some content based recommenders have attempted to use latent Dirichlet allocatio
 
 The main obstacle facing both systems is the need for user interaction before the system can make useful recommendations tailored to the user's interests, which is often referred to as the 'cold start problem.' 
 
-C
+COLD START D2V
 
 This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. Running the script will perform the following opertaions. 
 
@@ -91,5 +91,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk2ODAwMjg4XX0=
+eyJoaXN0b3J5IjpbMTczMDk0OTA1OV19
 -->
