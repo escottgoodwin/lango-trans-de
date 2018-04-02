@@ -131,7 +131,7 @@ Once a user begins interacting with a site, this cold start clustering method co
 
 **2. Updating Doc2Vec Model**
 
-Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to significant improvements in speed. 
+Continuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to significant improvements in speed. 
 
 **4. Pre-Trained Word Vectors**
 
@@ -149,7 +149,7 @@ Develop/Integrate a method to automatically determine ideal number of clusters f
 
 Currently, a user's interests are only modeled from past X number of days of browsing history. While a user's most recent interests are important for getting and maintaining interest in a given corpus at a given moment in time, developing a master profile including all the user's browsing history would be valuable as well. One could then make additional recommendations based on 'long tail' interests. 
 
-A master interest profile developed from this model may differ from a user interest profile generated purely from user interactions with the subject website and, therefore, provide additional insights into the subject website's user base. Executives would better understand their users' long-term or recurrent interests. Executives could use that knowledge to determine editorial direction and inform various strategic business initiatives, such as market positioning. 
+A master interest profile developed from this model may differ from a user interest profile generated purely from user interactions with the subject website and, therefore, provide additional insights into the subject website's user base. Executives could better understand their users' long-term or recurrent interests and use that knowledge to determine editorial direction and inform various strategic business initiatives, such as market positioning. 
 
 **8. Single Rank of Recommendations For All Category Clusters**
 
@@ -157,5 +157,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5NzE4ODQ0M119
+eyJoaXN0b3J5IjpbLTExNzY5Nzg0NTZdfQ==
 -->
