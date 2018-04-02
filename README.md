@@ -38,6 +38,8 @@ Duplicate links are filtered out. Recommended links are saved in a text file.
 
 Runtime will depend on connection speed. First run will be considerably longer because it requires downloading the corpus and the creation of the Doc2Vec model. Subsequent runs will be quicker because only the articles from the user history will be downloaded. With common consumer connection and computing speeds, first run will take about 15-20 minutes and subsequent runs will be about 5-8 minutes. 
 
+According to gensim's documentation, using a C compiler would signficantly optimize training and speedup model generation  by a factor of 70. A model that took 8 minutes to generate would take only about 7 seconds after optimization.
+
 The ideal number of recommendation clusters for a given corpus and a given number of articles in user history can be investigated with the Elbow method, or other cluster evaluation methods mentioned in http://www.sthda.com/english/articles/29-cluster-validation-essentials/96-determining-the-optimal-number-of-clusters-3-must-know-methods/#elbow-method. Example - for 100 articles, 10 clusters, for 500 articles, 20 clusters etc. Adjusting the numbe of clusters in this way relies on an assumption that, as the number of articles increases, there will likely be a larger number of user interests represented in the history, or that a user's interests are more 'fine grained' within a given broad topic. Getting the number of 'interests' and 'granularity' right will improve the quality of recommendations. 
 
 KEY ADVANTAGES
@@ -58,3 +60,11 @@ e. Other hazardous consumer products and attempts to regulate them to enhance sa
 The continous nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article, without the need to arbitrarily determine discrete, human intelligible topics. In a continous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what this articles is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be more difficult and, I suspect, lead to less effective recommendations. 
 
 The recommender provides recommendations that may be tangential to the central subject of the article that are still interesting and valuable. These tangential aspects can provide a different perspective regarding the 'topic' of the article and spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitious quality. 
+
+AREAS FOR FURTHER INVESTIGATION
+
+1. Integration with with other recommender methods. Once a user begins interacting with a site, this cold start clustering method could be integrated and/or refined with collaborative filtering methods based on user profiles generated from website interaction data. 
+
+2. Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to signficant speed improvements. 
+
+3. Using pre-trained word vectors such as FastText with Doc2Vec. 
