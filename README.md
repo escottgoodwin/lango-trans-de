@@ -147,7 +147,11 @@ Develop/Integrate a method to automatically determine ideal number of clusters f
 
 7. Master User Interest Profile 
 
+8. Single Order of Recommendation For All Category Clusters
+
+Individual article recommendations (links) 
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5MDQ3ODQ0Ml19
+eyJoaXN0b3J5IjpbMzE3Mzg5ODIyXX0=
 -->
