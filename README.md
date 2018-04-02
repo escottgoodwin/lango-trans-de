@@ -26,8 +26,8 @@ This recommender system attempts to solve that problem by modeling a user's inte
 
 TO RUN
 
-1. cd into cold_start_d2v directory
-2. run - python cold_start.py
+    1. cd into cold_start_d2v directory
+    2. run - python cold_start.py
 
 Once recommendations are generated, you can run the flask server to get the last set of recommendations by running:
 
@@ -138,7 +138,10 @@ Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are add
 Using pre-trained word vectors such as FastText with Doc2Vec. 
 
 5. Article Recommendations by Date 
+
 Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODQzODk4MjhdfQ==
+eyJoaXN0b3J5IjpbMTIwNDkxNDUzOF19
 -->
