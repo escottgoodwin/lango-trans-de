@@ -2,6 +2,8 @@ This package is a demonstration of a 'cold start' article recommendation system 
 
 From the browsing history, the recommender generates a profile of the user's most important, recent interests. The recommender system can then use the profile to make article recommendations that most closely match the user's interest from a given article corpus . 
 
+image
+
 **BACKGROUND**
 
 Many article recommendation systems currently use collaborative or content-based filtering or other methods that make recommendations based on the user's interaction with the site.  
@@ -97,7 +99,7 @@ The ideal number of recommendation clusters for a given corpus and a given numbe
 
 Adjusting the number of clusters in this way relies on an assumption that, as the number of articles increases, there will likely be a larger number of user interests represented in the history, or that a user's interests are more 'fine grained' within a given broad topic. Getting the number of 'interests' and 'granularity' right will improve the quality of recommendations. 
 
-**USING A CUSTOM CORPUS**
+**USING A CUSTOM ARTICLE CORPUS**
 
 You can use a custom corpus of articles in the following format:
 
@@ -140,6 +142,8 @@ The continuous nature of the vector space enhances the recommender's ability to 
 
 The recommender may recommend articles 'tangential' to the central 'topic' of the subject article. These tangential aspects can provide a different perspective regarding the 'topic' of the article and may spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitous quality and a multifaceted representation of the article's subject matter.
 
+
+
 **AREAS FOR FURTHER INVESTIGATION**
 
 **1. Integration With Other Types of Recommenders** 
@@ -175,5 +179,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2OTg2MDcwMF19
+eyJoaXN0b3J5IjpbLTIwMjQzOTM0OTldfQ==
 -->
