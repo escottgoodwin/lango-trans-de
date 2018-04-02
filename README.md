@@ -57,11 +57,11 @@ This filters out base web addresses, on the theory that specific links (articles
 
 Download all the articles in user's filtered history. These articles will also be translated into the user's native language. Since Doc2Vec relies on a comprehensive vocabulary of the corpus to create the semantic vector space (topic/subject space), it is important that the browsing history articles are monolingual. We don't want business articles in German to occupy a different vector space 'area' than business articles in English for the purposes of modeling user interests. 
 
-**6. Generate Vectors for History Articles**
+**6. Generate Vectors for  Articles in History**
 
 Create vectors for the articles in the user's filtered history using the Doc2Vec model created from the corpus. 
 
-**7. Cluster History Vecs**
+**7. Cluster History Vectors**
 
 Use KMeans to cluster the vectors from the user's history. (Default 15 clusters). 
 
@@ -71,7 +71,7 @@ Get the most 'popular' vector clusters, as determined by the clusters with the g
 
 The number of articles in a cluster serves as a representation for the level of user interest in the 'topic' of that cluster. The default identifies the top 33% clusters. (With defaults, the 5 most pouplar clusters of 15 clusters). 
 
-**9. Popular Cluster Centers**
+**9. Popular Cluster Vector Centers**
 
 Determine the vector centers of the most popular clusters. 
 
@@ -141,5 +141,5 @@ Get recommendations by date. Only recommend articles in the corpus that are fair
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzUzODI5MjQ3XX0=
+eyJoaXN0b3J5IjpbLTE4NTIwODMwNjJdfQ==
 -->
