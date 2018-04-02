@@ -102,12 +102,12 @@ USING A CUSTOM CORPUS
 You can use a custom corpus of articles with the following format:
 
     [
-    {'article':'article1 text string','date':'date1 string','link':'http://www.link1.com'},
-    {'article':'article2 text string','date':'date2 string','link':'http://www.link2.com'},
+    {'article':'article1 text string','date':date1 string','link':'http://www.link1.com'},
+    {'article':'article2 text string','date':date2 string','link':'http://www.link2.com'},
     ...
     ]
 
-It is important to have links for each article 
+It is important to have links for each article. 
 
 Then, in the main function, change the corpus_url variable to the location of your properly formatted corpus. 
 
@@ -175,5 +175,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODUwODkxNzBdfQ==
+eyJoaXN0b3J5IjpbMTUzODE1NTgyMl19
 -->
