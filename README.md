@@ -137,11 +137,13 @@ Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are add
 
 Using pre-trained word vectors, such as FastText, with Doc2Vec. 
 
-5. Article Recommendations by Date 
+**5. Article Recommendations by Date** 
 
-Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
+Get recommendations by date. Only recommend articles in the corpus that are recent. 
+
+6. Ideal Number of Category 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1MDkxNjE2NV19
+eyJoaXN0b3J5IjpbNjc2NjM3MjEzXX0=
 -->
