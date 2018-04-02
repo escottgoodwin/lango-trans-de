@@ -97,6 +97,10 @@ The ideal number of recommendation clusters for a given corpus and a given numbe
 
 Adjusting the number of clusters in this way relies on an assumption that, as the number of articles increases, there will likely be a larger number of user interests represented in the history, or that a user's interests are more 'fine grained' within a given broad topic. Getting the number of 'interests' and 'granularity' right will improve the quality of recommendations. 
 
+USING A CUSTOM CORPUS
+
+You can use a custom corpus 
+
 **KEY ADVANTAGES**
 
 **1. No user interaction required.** 
@@ -157,5 +161,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzMDY1NDc3OV19
+eyJoaXN0b3J5IjpbNzc4ODA3MTIxXX0=
 -->
