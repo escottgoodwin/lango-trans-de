@@ -121,15 +121,15 @@ For example, an article about instituting a 'sin tax' on alcohol and tobacco sal
 
 The continuous nature of the vector space enhances the recommender's ability to make recommendations of articles containing 'topics' most central to the article without the need to arbitrarily determine discrete, human intelligible topics. In a continuous space, the 'topics' need not be human intelligible in order to be useful. While it is quite easy to grasp intuitively what the 'sin tax' article is generally about, modeling it with a mix of discrete categories - especially categories that could hold for a corpus covering a wide-range of topics -  would be more difficult and, I suspect, lead to less effective recommendations. 
 
-The recommender may recommend articles 'tangential' to the central topic of the subject article. These tangential aspects can provide a different perspective regarding the 'topic' of the article and may spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitous quality and a multifaceted representation of the article's subject matter.
+The recommender may recommend articles 'tangential' to the central 'topic' of the subject article. These tangential aspects can provide a different perspective regarding the 'topic' of the article and may spur further investigation in directions that may not have been readily apparent. Often, this leads to recommendations with a serendipitous quality and a multifaceted representation of the article's subject matter.
 
 **AREAS FOR FURTHER INVESTIGATION**
 
-1. Integration With Other Types of Recommenders 
+**1. Integration With Other Types of Recommenders** 
 
 Once a user begins interacting with a site, this cold start clustering method could be integrated and/or refined with collaborative filtering methods based on user profiles generated from website interaction data. 
 
-2. Updating Doc2Vec Model
+**2. Updating Doc2Vec Model**
 
 Contiuous Update of Corpus Doc2Vec Model. Currently, every time articles are added to the corpus, the entire Doc2Vec model must be generated from scratch. Developing a continuous updating method where new articles can be added to an existing Doc2Vec model would lead to signficant speed improvements. 
 
@@ -143,5 +143,5 @@ Get recommendations by date. Only recommend articles in the corpus that are fair
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDI0NTk0MTVdfQ==
+eyJoaXN0b3J5IjpbLTEyMjUzNjgzOV19
 -->
