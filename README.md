@@ -101,6 +101,10 @@ USING A CUSTOM CORPUS
 
 You can use a custom corpus of articles with the following format:
 
+[
+{'article':'article1 text string','date':'date1 string','link':'http://www.link1.com'},
+{'article':'article2 text string','date':'date string','link':'http://www.link.com'}
+]
 
 **KEY ADVANTAGES**
 
@@ -162,5 +166,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY2MDQzNDE4XX0=
+eyJoaXN0b3J5IjpbMjAzMTUyODkwOV19
 -->
