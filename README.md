@@ -147,7 +147,7 @@ Develop/Integrate a method to automatically determine ideal number of clusters f
 
 **7. Master User Interest Profile** 
 
-Currently, a user's interests are only modeled from past X number of days of browsing history. While a user's most recent interests are important for getting and maintaining interest in a given corpus at a given moment in time, developing a master profile including all the user's browsing history would be valuable as well. A master interest profile developed from this model may differ from the interest profile generated purely from user interactions with the subject website and
+Currently, a user's interests are only modeled from past X number of days of browsing history. While a user's most recent interests are important for getting and maintaining interest in a given corpus at a given moment in time, developing a master profile including all the user's browsing history would be valuable as well. A master interest profile developed from this model may differ from a user interest profile generated purely from user interactions with the subject website and, therefore, provide additional insights into the subject website's user base. 
 One could then make additional recommendations based on 'long tail' interests. This would also help a website's executives understand their users' long-term or recurrent interests. Executives could use that knowledge to determine editorial direction and inform various strategic business initiatives, such as market positioning. 
 
 **8. Single Rank of Recommendations For All Category Clusters**
@@ -156,5 +156,5 @@ Individual article recommendations (links) could be ranked in a single list by t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3Mzc3MDIwMV19
+eyJoaXN0b3J5IjpbMTk4NjgyMjE0MV19
 -->
