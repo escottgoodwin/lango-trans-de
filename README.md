@@ -57,7 +57,7 @@ This filters out base web addresses, on the theory that specific links (articles
 
 5. Download History Articles
 
-Download all the articles in user's filtered history. These articles
+Download all the articles in user's filtered history. These articles will also be translated into the user's native language. Since Doc2Vec relies on a comprehensive vocabulary o 
 
 6. Create vectors for the articles in the user's filtered history using the doc2vec model created from the corpus. 
 
@@ -110,5 +110,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzMTUxODI2OV19
+eyJoaXN0b3J5IjpbLTEzMzY2NjE2MTldfQ==
 -->
