@@ -107,7 +107,7 @@ A user's interest profile can be modeled from their browser history and 'project
 
 2. User Interests in a Continuous Vector Space
 
-User interests exist in the continuous semantic space of the corpus. No tags, no trying to determine the percentage distribution of an arbitrary number of 'topics.' 
+User interests exist in the continuous semantic space of the corpus. No tags, no trying to determine the distribution of percentage  of an arbitrary number of 'topics' - 20% Marketing, 45% Sales, 
 
 The continous nature of the semantic space leads to recommendations of articles that touch on various aspects within the subject article. This would prove to be more difficult with discrete topics, or tags, chosen by a rater. 
 
@@ -132,5 +132,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODg3NDk1MTBdfQ==
+eyJoaXN0b3J5IjpbNjUyNDk4MjFdfQ==
 -->
