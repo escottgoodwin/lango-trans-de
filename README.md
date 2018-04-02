@@ -90,6 +90,10 @@ Duplicate links are filtered out. Recommended links are saved in a text file.
 
 A flask server will start automatically and open a webpage with the recommended links for each category cluster links in a new tab/window. A histogram with the number of articles in every cluster appears at the bottom. 
 
+Terminal Output 
+
+The terminal should output the time required for step 
+
 **Runtime**
 
 Runtime will depend on connection speed. First run will be considerably longer because it requires downloading the corpus and the creation of the Doc2Vec model. Subsequent runs will be quicker because only the articles from the user history will be downloaded. With common consumer connection and computing speeds, first run will take about 15-20 minutes and subsequent runs will be about 5-8 minutes. 
@@ -180,5 +184,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDIwNDc2OTZdfQ==
+eyJoaXN0b3J5IjpbMTM2ODc1MDIyOF19
 -->
