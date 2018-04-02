@@ -77,12 +77,14 @@ The number of articles in a cluster serves as a representation for the level of 
 
 Determine the vector centers of the most popular clusters. 
 
-11. Recommend Articles From Popular Vector C
+**11. Recommend Articles From Popular Vector Centers**
+
 Use the most popular vector centers to make article recommendations (links) for each cluster from the corpus using Doc2Vec's built-in similarity function, which uses cosine distance to determine similarity. (Default 20 articles per cluster). 
 
 Duplicate links are filtered out. Recommended links are saved in a text file. 
 
-12. A flask server will start automatically and open a webpage with the links in a new tab/window.
+**12. Display Recommendations in Flask Website**
+A flask server will start automatically and open a webpage with the links in a new tab/window.
 
 Runtime will depend on connection speed. First run will be considerably longer because it requires downloading the corpus and the creation of the Doc2Vec model. Subsequent runs will be quicker because only the articles from the user history will be downloaded. With common consumer connection and computing speeds, first run will take about 15-20 minutes and subsequent runs will be about 5-8 minutes. 
 
@@ -119,5 +121,5 @@ AREAS FOR FURTHER INVESTIGATION
 
 4. Get recommendations by date. Only recommend articles in the corpus that are fairly recent. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMzcwMzU0M119
+eyJoaXN0b3J5IjpbMjAwODk4NDY1XX0=
 -->
