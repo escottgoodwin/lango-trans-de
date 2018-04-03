@@ -17,13 +17,13 @@ A collaborative filter recommendation system would create a user profile from th
 
 **Content Based**
 
-Content based systems compare the similarity of articles, often based on article tags. If a user clicks on article with tags 'business,'marketing','sales', a content based recommender system would recommend articles with the similar tags. Relying on tagging in this way is a major limitation for content based systems in two ways. First, having to provide tags can be burdensome. Secondly, a collection of tags may not accurately represent an article's subject matter. An article may have too few tags to convey the nuance of it's subject matter, or the tags themselves may be too general to use in making recommendations. Also, basic tagging systems weight all tags equally, so we may not get a sense of what the article is really about. A marketing article may use a example from baseball in one paragraph, but be tagged 'maketing', 'baseball.' This could lead a content based recommender to recommend articles about baseball, even though the article is really about marketing.  Some content based recommenders have attempted to use latent Dirichlet allocation (LDA) to provide tag weighting to more accurately represent what percentage of each subject is in a given article. However, even this method is limited by the need to specify a certain number of topics to represent the article. 
+Content based systems compare the similarity of articles, often based on article tags. If a user clicks on article with tags 'business,'marketing','sales', a content based recommender system would recommend articles with the similar tags. Relying on tagging in this way is a major limitation for content based systems in two ways. First, having to provide tags can be burdensome. Secondly, a collection of tags may not accurately represent an article's subject matter. An article may have too few tags to convey the nuance of it's subject matter, or the tags themselves may be too general to use in making recommendations. Also, basic tagging systems weight all tags equally, so we may not get a sense of what the article is really about. A marketing article may use a example from baseball in one paragraph, but be tagged 'maketing', 'baseball.' This could lead a content based recommender to recommend articles about baseball, even though the article is really about marketing.  Some content based recommenders have attempted to use latent Dirichlet allocation (LDA) to provide tag weighting to more accurately represent what percentage of each subject is in a given article. However, even this method is limited by the need to specify a certain number of discrete topics to represent the article. 
 
-The main obstacle facing both systems is the need for user interaction before the system can make useful recommendations tailored to the user's interests, which is often referred to as the 'cold start problem.' 
+The main obstacle facing both systems is the need for user interaction before the system can make useful recommendations tailored to the user's interests. This  is often referred to as the 'cold start problem.' 
 
 **COLD START D2V**
 
-This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. 
+This recommender system attempts to address the 'cold start problem'  by modeling a user's interests based on recent browsing history. 
 
 **Requirements** 
 
@@ -222,5 +222,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NzYzMDg5MF19
+eyJoaXN0b3J5IjpbLTE0OTMwMDk2NV19
 -->
