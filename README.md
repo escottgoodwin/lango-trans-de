@@ -112,7 +112,30 @@ The terminal should output the time required for each step similar to:
 
 Parameters 
 
-The parameters one can adjust 
+The parameters one can adjust are located in the main() function. 
+
+corpus_url: url of article corpus 
+
+    # majority or native language for browsing history - history needs to be monolingual - foreign articles will be translated to native detect_language
+    lang = 'en'
+    ## doc2vec model name for corpus
+    model_name = 'news'
+    ## number of days browsing history to analyze
+    days = 2
+    ## number of clusters (abstract 'topics') to find in the browsing history
+    ## 10-15 seems to work well for about 300 items
+    cluster_num = 15
+    ## percent cut off for clusters with the most articles - .33 will yield the top 5 clusters with the most articles
+    pop_percent = .33
+    ## numer of article recommendations for each cluster category
+    rec_num = 20
+
+    ## Doc2Vec Parameters
+
+    #vector dimension size representing each article in the doc2vec model
+    vector_size = 100
+    ## epochs used to train the doc2vec model
+    epochs = 10
 
 **Runtime**
 
@@ -205,5 +228,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMDc1OTYyNl19
+eyJoaXN0b3J5IjpbMzQ0ODkzNjE2XX0=
 -->
