@@ -162,7 +162,7 @@ It is important to have links for each article.
 Then, in the main function, change the `corpus_url` variable to the location of your properly formatted corpus. 
 
     def main():
-    	corpus_url = 'http://location_of_your_corpus'
+    corpus_url = 'http://location_of_your_corpus'
 
 **KEY ADVANTAGES**
 
@@ -227,5 +227,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODg2NjAzNjI1XX0=
+eyJoaXN0b3J5IjpbLTIzMTQ1NjIzOV19
 -->
