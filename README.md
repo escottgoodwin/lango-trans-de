@@ -99,6 +99,9 @@ Duplicate links are filtered out. Recommended links are saved in a text file.
 
 A flask server will start automatically and open a webpage with the recommended links for each category cluster links in a new tab/window. A histogram with the number of articles in every cluster appears at the bottom. 
 
+![Screen Shot
+](https://github.com/escottgoodwin/cold_start_d2v/blob/master/static/screenshot.png)
+
 **Terminal Output** 
 
 The terminal should output the time required for each step similar to: 
@@ -222,5 +225,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTMwMDk2NV19
+eyJoaXN0b3J5IjpbMzE1MjY1NjIxXX0=
 -->
