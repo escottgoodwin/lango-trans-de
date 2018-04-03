@@ -126,14 +126,14 @@ cluster_num: number of clusters to use in clustering the browser history vectors
 
 pop_percent: percentage to use in selecting the x most popular number of clusters
 
-rec_num: 
+rec_num: number of recommendations per popular interest cluster
 
-    ## Doc2Vec Parameters
+Doc2Vec Parameters
 
     #vector dimension size representing each article in the doc2vec model
-    vector_size = 100
-    ## epochs used to train the doc2vec model
-    epochs = 10
+    vector_size: vector dimension size representing each article in the doc2vec model
+    ## 
+    epochs: epochs used to train the doc2vec model
 
 **Runtime**
 
@@ -226,5 +226,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NDQyMDI0MV19
+eyJoaXN0b3J5IjpbLTE3MDQxMTM4MjVdfQ==
 -->
