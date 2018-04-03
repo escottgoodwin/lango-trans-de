@@ -5,10 +5,8 @@ from textblob import TextBlob
 import pandas as pd
 from sklearn.cluster import KMeans
 from stop_words import get_stop_words
-from urllib.parse import urlparse
 import matplotlib.pyplot as plt
 import sqlite3
-import urllib3
 import urllib.request
 from shutil import copy2
 from art_scrape2 import get_feed_articles
@@ -108,7 +106,7 @@ def get_popular(df,clusters,centers,percent):
     df_pop = df.loc[df['cluster'].isin(clusters.index[clusters.index[:cutoff]])]
     return popcenters,df_pop
 
-def get_pop_vecs(model_name,native,days,clust_num=10,percent=.5):
+def get_pop_vecs(model_name,native,days,clust_num=15,percent=.33):
     ## sample filter to remove irrevelvant sites - generally non-news oriented sites
     filters2 = [
     'duolingo','file://','instagram','twitter','localhost','google','collegeofthedesert','youtube','starbucks','sbux-portal','toyota','quicklaunchsso','github','bankofamerica','plex','hbogo','showtime','netflix','thepiratebay','facebook','tvguide','customwebauth','t.co',
