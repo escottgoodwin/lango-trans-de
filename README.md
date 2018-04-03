@@ -29,6 +29,20 @@ The main obstacle facing both systems is the need for user interaction before th
 
 This recommender system attempts to solve that problem by modeling a user's interests based on recent browsing history. 
 
+**Requirements** 
+
+python >= 3.3
+NumPy >= 1.3
+SciPy >= 0.7
+gensim >= 3.4.0
+textblob >= 0.15.1
+pandas >= 0.22.0
+sklearn >= 0.19.1
+stop_words >= 2015.2.23.1
+matplotlib >= 2.2.2
+urllib3 >= 1.22
+flask >= 0.12
+
 **TO RUN**
 
     1. cd into cold_start_d2v directory
@@ -187,5 +201,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNDIzOTI5XX0=
+eyJoaXN0b3J5IjpbNjc4Nzc1MzIxXX0=
 -->
