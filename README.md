@@ -23,7 +23,9 @@ The main obstacle facing both systems is the need for user interaction before th
 
 **COLD START D2V**
 
-This recommender system attempts to address the 'cold start problem'  by modeling a user's interests based on recent browsing history. The method uses [Doc2Vec](https://cs.stanford.edu/~quocle/paragraph_vector.pdf) to create vector representations of documents. By training a Doc2Vec model with a specific corpus, the resulting documents vectors are able to represent  the semantic meaning of each document within a continuous vector space. This package uses the [gensim implementation of Doc2Vec](https://radimrehurek.com/gensim/models/doc2vec.html). 
+This recommender system attempts to address the 'cold start problem'  by modeling a user's interests based on recent browsing history. The method uses [Doc2Vec](https://cs.stanford.edu/~quocle/paragraph_vector.pdf) to create vector representations of documents. By training a Doc2Vec model with a specific corpus, the resulting documents vectors are able to represent  the semantic meaning of each document within a continuous vector space. However, the semantic meanings are limited to those within the corpus. 
+
+This package uses the [gensim implementation of Doc2Vec](https://radimrehurek.com/gensim/models/doc2vec.html). 
 
 **Requirements** 
 
@@ -227,5 +229,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTM0MjQ1NDRdfQ==
+eyJoaXN0b3J5IjpbLTE5NzEzOTc4MzddfQ==
 -->
