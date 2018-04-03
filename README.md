@@ -110,6 +110,10 @@ The terminal should output the time required for each step similar to:
 ![Screen Shot Terminal
 ](https://github.com/escottgoodwin/cold_start_d2v/blob/master/static/screenshotterminal.png)
 
+Parameters 
+
+The parameters one can adjust 
+
 **Runtime**
 
 Runtime will depend on connection speed. First run will be considerably longer because it requires downloading the corpus and the creation of the Doc2Vec model. Subsequent runs will be quicker because only the articles from the user history will be downloaded. With common consumer connection and computing speeds, first run will take about 15-20 minutes and subsequent runs will be about 5-8 minutes. 
@@ -201,5 +205,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTIwNDM5MTg0XX0=
+eyJoaXN0b3J5IjpbMTEzMDc1OTYyNl19
 -->
