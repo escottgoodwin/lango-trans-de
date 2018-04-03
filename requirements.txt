@@ -10,3 +10,5 @@ stop_words >= 2015.2.23.1
 matplotlib >= 2.2.2
 urllib3 >= 1.22
 flask >= 0.12
+bs4 >= 4.4.0
+feedparser >= 5.2.1

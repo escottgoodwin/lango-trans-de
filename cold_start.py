@@ -162,7 +162,7 @@ def get_recs(corpus,vecs,model_name,rec_num):
     sim_articles = [[x[1] for x in cluster] for cluster in sim_links_art]
     return sim_links,sim_articles,sim_links_art
 
-def rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num):
+def rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num,vector_size,epochs):
     t0 = datetime.datetime.now()
     article_file = model_name + '_arts.txt'
     t1 = datetime.datetime.now()
@@ -175,7 +175,7 @@ def rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num):
     if not os.path.exists(model_name + 'model.model'):
         corpus = json.load(open(article_file))
         print('creating doc2vec model')
-        create_doc2vec_model(corpus,model_name)
+        create_doc2vec_model(corpus,model_name,vector_size,epochs,lang)
         t2 = datetime.datetime.now()
         print('doc2vec model created: ' + model_name + 'model.model ', str(t2-t1))
     print('analyzing browser history')
@@ -200,13 +200,13 @@ def rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num):
     start_flask(saved_recs)
 
 def main():
+
+    # Parameters
+
     #location of corpus
     ## to use a custom corpus:
     # corpus needs to be in this format - {'article':'article text string','date':'today's date string','link':'http://www.link.com'}
-    # you convert a list of articles into this format with dummy values by calling - format_arts(articles)
     corpus_url = 'https://www.dropbox.com/s/m25u619i207r7f2/news_arts1.txt?dl=1'
-    # corpus needs to be a format - {'article':'article text string','date':'today's date string','link':'http://www.nolink.com'}
-    # you convert a list of articles into this format with dummy values  by calling format_arts(articles)
 
     # majority or native language for browsing history - history needs to be monolingual - foreign articles will be translated to native detect_language
     lang = 'en'
@@ -221,7 +221,14 @@ def main():
     pop_percent = .33
     ## numer of article recommendations for each cluster category
     rec_num = 20
-    rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num)
+
+    ## Doc2Vec Parameters
+
+    #vector dimension size representing each article in the doc2vec model
+    vector_size = 100
+    ## epochs used to train the doc2vec model
+    epochs = 10
+    rec_output(corpus_url,lang,model_name,days,cluster_num,pop_percent,rec_num,vector_size,epochs)
 
 
 if __name__ == '__main__':
