@@ -110,7 +110,7 @@ The terminal should output the time required for each step similar to:
 ![Screen Shot Terminal
 ](https://github.com/escottgoodwin/cold_start_d2v/blob/master/static/screenshotterminal.png)
 
-Parameters 
+**Parameters** 
 
 The parameters one can adjust are located in the `main()` function. 
 
@@ -130,9 +130,9 @@ The parameters one can adjust are located in the `main()` function.
 
 Doc2Vec Parameters
 
-vector_size: vector dimension size representing each article in the doc2vec model
-
-epochs: epochs used to train the doc2vec model
+    vector_size: vector dimension size representing each article in the doc2vec model
+    
+    epochs: epochs used to train the doc2vec model
 
 **Runtime**
 
@@ -226,5 +226,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzUxNTU2OTkyXX0=
+eyJoaXN0b3J5IjpbNjc5Mjg3ODA4XX0=
 -->
