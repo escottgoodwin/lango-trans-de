@@ -23,7 +23,7 @@ The main obstacle facing both systems is the need for user interaction before th
 
 **COLD START D2V**
 
-This recommender system attempts to address the 'cold start problem'  by modeling a user's interests based on recent browsing history. The method uses Doc2Vec to create vector representations of documents. By training These vectors are able to represent  semantic meaning 
+This recommender system attempts to address the 'cold start problem'  by modeling a user's interests based on recent browsing history. The method uses Doc2Vec to create vector representations of documents. By training a Doc2Vec model with a specific corpus, the resulting documents vectors are able to represent  semantic meaning on  
 
 **Requirements** 
 
@@ -227,5 +227,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTI3NzEzNjBdfQ==
+eyJoaXN0b3J5IjpbNDcwNzc0MzY3XX0=
 -->
