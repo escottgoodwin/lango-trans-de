@@ -118,9 +118,8 @@ corpus_url: url of article corpus
 lang: native language of the corpus
 model_name: name of Doc2Vec model generated and saved
 days: number of days of browsing history to use
-cluster_num: number of clusters to use in clustering the browser history vectors. This represents the latent areas of inter
-    ## percent cut off for clusters with the most articles - .33 will yield the top 5 clusters with the most articles
-    pop_percent = .33
+cluster_num: number of clusters to use in clustering the browser history vectors. This represents the latent areas of interest in the browsing history. 
+pop_percent = percentage to us
     ## numer of article recommendations for each cluster category
     rec_num = 20
 
@@ -222,5 +221,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYxNDk4NTUxXX0=
+eyJoaXN0b3J5IjpbNDgwMjIzNjIzXX0=
 -->
