@@ -31,16 +31,16 @@ This recommender system attempts to solve that problem by modeling a user's inte
 
 **Requirements** 
 
-python >= 3.3
-NumPy >= 1.3
-SciPy >= 0.7
-gensim >= 3.4.0
-textblob >= 0.15.1
-pandas >= 0.22.0
-sklearn >= 0.19.1
-stop_words >= 2015.2.23.1
-matplotlib >= 2.2.2
-flask >= 0.12
+    python >= 3.3
+    NumPy >= 1.3
+    SciPy >= 0.7
+    gensim >= 3.4.0
+    textblob >= 0.15.1
+    pandas >= 0.22.0
+    sklearn >= 0.19.1
+    stop_words >= 2015.2.23.1
+    matplotlib >= 2.2.2
+    flask >= 0.12
 
 **TO RUN**
 
@@ -199,6 +199,7 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTQ5NTY1NzRdfQ==
+eyJoaXN0b3J5IjpbNTIwNDM5MTg0XX0=
 -->
