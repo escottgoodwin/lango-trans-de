@@ -40,7 +40,6 @@ pandas >= 0.22.0
 sklearn >= 0.19.1
 stop_words >= 2015.2.23.1
 matplotlib >= 2.2.2
-urllib3 >= 1.22
 flask >= 0.12
 
 **TO RUN**
@@ -201,5 +200,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc4Nzc1MzIxXX0=
+eyJoaXN0b3J5IjpbLTIwOTQ5NTY1NzRdfQ==
 -->
