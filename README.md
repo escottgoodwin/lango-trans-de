@@ -116,13 +116,9 @@ The parameters one can adjust are located in the main() function.
 
 corpus_url: url of article corpus 
 lang: native language of the corpus
-	
-model_name = 'news'
-    ## number of days browsing history to analyze
-    days = 2
-    ## number of clusters (abstract 'topics') to find in the browsing history
-    ## 10-15 seems to work well for about 300 items
-    cluster_num = 15
+model_name: name of Doc2Vec model generated and saved
+days: number of days of browsing history to use
+cluster_num: number of KMeans clusters for 
     ## percent cut off for clusters with the most articles - .33 will yield the top 5 clusters with the most articles
     pop_percent = .33
     ## numer of article recommendations for each cluster category
@@ -226,5 +222,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1MDQ1MDkxNl19
+eyJoaXN0b3J5IjpbMTk5NDE0ODE4Nl19
 -->
