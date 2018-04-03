@@ -37,6 +37,8 @@ This recommender system attempts to address the 'cold start problem'  by modelin
     stop_words >= 2015.2.23.1
     matplotlib >= 2.2.2
     flask >= 0.12
+	bs4 >= 4.4.0
+	feedparser >= 5.2.1
 
 **TO RUN**
 
@@ -225,5 +227,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE1MjY1NjIxXX0=
+eyJoaXN0b3J5IjpbODg2NjAzNjI1XX0=
 -->
