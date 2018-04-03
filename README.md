@@ -115,11 +115,9 @@ Parameters
 The parameters one can adjust are located in the main() function. 
 
 corpus_url: url of article corpus 
-
-    # majority or native language for browsing history - history needs to be monolingual - foreign articles will be translated to native detect_language
-    lang = 'en'
-    ## doc2vec model name for corpus
-    model_name = 'news'
+lang: native language of the corpus
+	
+model_name = 'news'
     ## number of days browsing history to analyze
     days = 2
     ## number of clusters (abstract 'topics') to find in the browsing history
@@ -228,5 +226,5 @@ Individual article recommendations could be ranked in a single list by taking th
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ0ODkzNjE2XX0=
+eyJoaXN0b3J5IjpbMTI1MDQ1MDkxNl19
 -->
