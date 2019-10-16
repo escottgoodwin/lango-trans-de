@@ -5,12 +5,17 @@ botocore==1.12.248
 bs4==0.0.1
 certifi==2019.9.11
 chardet==3.0.4
+Click==7.0
 docutils==0.15.2
+Flask==1.1.1
 gensim==3.8.1
 idna==2.8
+itsdangerous==1.1.0
+Jinja2==2.10.3
 jmespath==0.9.4
 joblib==0.14.0
 lxml==4.4.1
+MarkupSafe==1.1.1
 nltk==3.4.5
 numpy==1.17.2
 pandas==0.25.1
@@ -29,3 +34,4 @@ soupsieve==1.9.4
 stop-words==2018.7.23
 textblob==0.15.3
 urllib3==1.25.6
+Werkzeug==0.16.0

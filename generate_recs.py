@@ -23,6 +23,18 @@ host = os.getenv('PGCONNECT_HOST')
 port = os.getenv('PGCONNECT_PORT')
 dbname = os.getenv('PGCONNECT_DBNAME')
 
+def load_d2v_models():
+    native_lang_model_path=f'{native_lang}model3.model'
+    trans_lang_model_path=f'{trans_lang}model3.model'
+
+    t0=datetime.datetime.now()
+    native_lang_model = Doc2Vec.load(native_lang_model_path)
+    trans_lang_model = Doc2Vec.load(trans_lang_model_path)
+    t1= datetime.datetime.now()
+    print('loaded models '+ str(t1-t0))
+
+load_d2v_models()
+
 def fetch_user_links(uid):
     conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port, sslmode='require')
     cur = conn.cursor()
@@ -139,15 +151,7 @@ def store_recs(uid, recs, trans_lang, cluster):
     conn.close()
 
 def generate_recs(native_lang,trans_lang,uid,clust_num,percent,rec_num):
-    native_lang_model_path=f'{native_lang}model3.model'
-    trans_lang_model_path=f'{trans_lang}model3.model'
-
-    t0=datetime.datetime.now()
-    native_lang_model = Doc2Vec.load(native_lang_model_path)
-    trans_lang_model = Doc2Vec.load(trans_lang_model_path)
-    t1= datetime.datetime.now()
-    print('loaded models '+ str(t1-t0))
-
+    
     t2=datetime.datetime.now()
     links = fetch_user_links(uid)
     t3=datetime.datetime.now()
@@ -196,12 +200,15 @@ def generate_recs(native_lang,trans_lang,uid,clust_num,percent,rec_num):
     print('total'+str(t19-t0))
 
 def main():
-    native_lang = 'en'
-    trans_lang = 'fr'
-    uid = '3736ENQJEUavLjKX8ufPf5zfKl62'
+
+    native_lang = sys.argv[1]
+    trans_lang = sys.argv[2]
+    uid = sys.argv[3]
     clust_num=15
     percent=.33
     rec_num=20 
+
+    print('generating recs for userid:' + uid + ' native: '+ native_lang + ' target: ' + trans_lang)
 
     generate_recs(native_lang,trans_lang,uid,clust_num,percent,rec_num)
 
