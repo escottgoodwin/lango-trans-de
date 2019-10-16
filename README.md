@@ -1,4 +1,4 @@
-**HISTORY_RECS**
+**BROWSING HISTORY FOREIGN LANGUAGE RECOMMENDATIONS**
 
 Generate foreign language recommendations based on a user's browsing history. 
 
