@@ -14,6 +14,7 @@ import requests
 from bs4 import BeautifulSoup
 import traceback
 from dotenv import load_dotenv
+from requests.exceptions import HTTPError
 
 load_dotenv()
 
@@ -23,109 +24,17 @@ host = os.getenv('PGCONNECT_HOST')
 port = os.getenv('PGCONNECT_PORT')
 dbname = os.getenv('PGCONNECT_DBNAME')
 
-def load_d2v_models():
-    native_lang_model_path=f'{native_lang}model3.model'
-    trans_lang_model_path=f'{trans_lang}model3.model'
-
-    t0=datetime.datetime.now()
-    native_lang_model = Doc2Vec.load(native_lang_model_path)
-    trans_lang_model = Doc2Vec.load(trans_lang_model_path)
-    t1= datetime.datetime.now()
-    print('loaded models '+ str(t1-t0))
-
-load_d2v_models()
-
-def fetch_user_links(uid):
-    conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port, sslmode='require')
-    cur = conn.cursor()
-    sql = f"SELECT link FROM user_links WHERE uid LIKE '{uid}'"
-    cur.execute(sql)
-    links  = cur.fetchall()
-    conn.close()
-    newlinks = [x[0] for x in links]
-    return newlinks
-
-def get_feed_articles(links,lang,min_len=2000,max_len=50000):
-    count = 0
-    articles = []
-    for link in links:
-        try:
-            art = art_parser(link)
-            if (min_len <= len(art) <= max_len):
-                articles.append(art)
-        except Exception:
-            print(link)
-            traceback.print_exc()
-            pass
-        count += 1
-        pct = count / len(links)
-        print(pct, end='\r')
-        sys.stdout.flush()
-    return articles
-
-def art_parser(link):
-    r = requests.get(link)
-    page = r.text
-    soup = BeautifulSoup(page,"lxml")
-    for x in soup('script'):
-        x.decompose()
-    for x in soup('link'):
-        x.decompose()
-    for x in soup('meta'):
-        x.decompose()
-    paras = soup('p')
-    if soup.title is None:
-        prep_art = ''
-        title = ''
-        return prep_art
-    else:
-        title = soup.title.string
-        atriclestrip = [art.get_text() for art in paras]
-        prep_art = ' '.join(atriclestrip)
-        return prep_art
-
-def one_lang(arts,native):
-    arts1_cur_1lang = []
-    for x in arts:
-        art = TextBlob(x)
-        if art.detect_language() != native:
-            trans = art.translate(to=native)
-            arts1_cur_1lang.append(str(trans))
-        else:
-            arts1_cur_1lang.append(x)
-    return arts1_cur_1lang
-
-def clean_arts(arts,native):
-    no_pdf = [x for x in arts if not x.startswith("%PDF-")]
-    one_lang1 = one_lang(no_pdf, native)
-    return one_lang1
-
 def article_vec(article,lang_model,lang):
     stop_words = get_stop_words(lang)
     histnostop = [i for i in article.lower().split() if i not in stop_words]
     vec = lang_model.infer_vector(histnostop)
     return vec
 
-def cluster_articles(articles,vecs,clust_num):
-    km = KMeans(n_clusters=clust_num)
-    km.fit(vecs)
-    cluster_labels = km.labels_.tolist()
-    df = pd.DataFrame(cluster_labels,columns=['cluster']) 
-    df['native_vector'] = vecs 
-    df['native_article'] = articles 
-    cluster_grps = [df.loc[df['cluster'] == x]['native_article'].tolist() for x in range(clust_num)]
-    return cluster_grps
-
-def popular_clusters(cluster_grps,percent):
-    sorted_clusters= sorted(cluster_grps, key=len,reverse=True)
-    pop_length = int(len(cluster_grps)*percent)
-    return sorted_clusters[:pop_length]
-
 def trans_vec_centers(cluster, trans_lang_model, trans_lang):
     trans_vecs=[]
-    for art in cluster:
+    for art in cluster["cluster"]:
         try:
-            trans_art = str(TextBlob(art).translate(to=trans_lang))
+            trans_art = str(TextBlob(art["art"]).translate(to=trans_lang))
             trans_vec = article_vec(trans_art, trans_lang_model, trans_lang)
             trans_vecs.append(trans_vec)
         except Exception:
@@ -150,67 +59,91 @@ def store_recs(uid, recs, trans_lang, cluster):
         cur.execute(query,data)
     conn.close()
 
-def generate_recs(native_lang,trans_lang,uid,clust_num,percent,rec_num):
-    
-    t2=datetime.datetime.now()
-    links = fetch_user_links(uid)
-    t3=datetime.datetime.now()
-    print('loaded links '+ str(len(links)) + ' ' + str(t3-t2))
-    
-    t4=datetime.datetime.now()
-    articles = get_feed_articles(links, native_lang, min_len=2000, max_len=50000)
-    t5=datetime.datetime.now()
-    print('loaded arts ' + str(len(articles)) + ' ' + str(t5-t4))
+def generate_recs(pop_clusters,uid, trans_lang, rec_num):
+    trans_lang_model_path=f'{trans_lang}model3.model'
 
-    t6=datetime.datetime.now()
-    cleaned_arts = clean_arts(articles,native_lang)
-    t7=datetime.datetime.now()
-    print('cleaned arts ' + str(len(cleaned_arts)) + ' ' + str(t7-t6))
-
-    t8=datetime.datetime.now()
-    native_art_vecs =[article_vec(article,native_lang_model,native_lang) for article in cleaned_arts]
-    t9=datetime.datetime.now()
-    print('native vec arts '+str(t9-t8))
-
-    t10=datetime.datetime.now()
-    cluster_grps = cluster_articles(cleaned_arts, native_art_vecs, clust_num)
-    t11=datetime.datetime.now()
-    print('cluster native arts '+ str(t11-t10))
-
-    t12=datetime.datetime.now()
-    pop_clusters = popular_clusters(cluster_grps, percent)
-    t13=datetime.datetime.now()
-    print('popular native clusters '+ str(t13-t12))
+    t0=datetime.datetime.now()
+    trans_lang_model = Doc2Vec.load(trans_lang_model_path)
+    t1=datetime.datetime.now()
+    loaded_models = f'loaded models {str(t1-t0)}'
+    print(loaded_models)
 
     t14=datetime.datetime.now()
     trans_lang_vec_centers = [trans_vec_centers(cluster,trans_lang_model,trans_lang) for cluster in pop_clusters]
     t15=datetime.datetime.now()
-    print('translate and vec to trans lang'+ str(t15-t14))
+    trans_vec='translate and vec to trans lang'+ str(t15-t14)
+    print(trans_vec)
 
     t16=datetime.datetime.now()
     recs = get_recs(trans_lang_vec_centers, trans_lang_model, rec_num)
     t17=datetime.datetime.now()
-    print('get trans lang recs' + str(t17-t16))
+    trans_recs = 'get trans lang recs' + str(t17-t16)
+    print(trans_recs)
 
     t18=datetime.datetime.now()
-    [store_recs(uid, recs, trans_lang, i) for i,recs in enumerate(recs)]
+    for i,recs in enumerate(recs):
+        store_recs(uid, recs, trans_lang, i)
+    
     t19=datetime.datetime.now()
-    print('store recs' + str(t19-t18))
+    store_recs1='store recs' + str(t19-t18)
+    print(store_recs1)
+    total='total time'+str(t19-t0)
+    print(total)
 
-    print('total'+str(t19-t0))
+    generation_times={
+        "loaded_models":loaded_models,
+        "trans_vec":trans_vec,
+        "trans_recs":trans_recs,
+        "store_recs":store_recs1,
+        "total":total
+    }
+    return generation_times
 
 def main():
 
-    native_lang = sys.argv[1]
-    trans_lang = sys.argv[2]
-    uid = sys.argv[3]
+    #native_lang = sys.argv[1]
+    #trans_lang = sys.argv[2]
+    #uid = sys.argv[3]
     clust_num=15
     percent=.33
     rec_num=20 
 
-    print('generating recs for userid:' + uid + ' native: '+ native_lang + ' target: ' + trans_lang)
+    trans_lang = 'de'
 
-    generate_recs(native_lang,trans_lang,uid,clust_num,percent,rec_num)
+    uid = '3736ENQJEUavLjKX8ufPf5zfKl62'
+    native_lang='en'
+    clust_num:15
+    percent:0.33
+    
+    print('generating recs for userid:' + uid + ' trans: '+ trans_lang)
+
+    native_data = {
+        "native_lang": native_lang,
+        "uid":uid,
+        "clust_num":clust_num,
+        "percent":percent
+    }
+
+    cluster_link = 'https://lango-cluster-en-v26nfpfxqq-uc.a.run.app/get_recs'
+
+    try:
+        response = requests.post(cluster_link, json={
+            "native_lang": native_lang,
+            "uid":uid,
+            "clust_num":clust_num,
+            "percent":percent
+        })
+        pop_clusters=response.json()
+        generation_times = generate_recs(pop_clusters,uid, trans_lang, rec_num)
+
+        print(generation_times)
+        
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}')  
+    except Exception as err:
+        print(f'Other error occurred: {err}') 
+    else:
+        print('Success!')
 
 if __name__ == '__main__':
     main()
