@@ -4,6 +4,7 @@ import json
 from datetime import datetime,timedelta
 from flask import Flask, request
 from generate_recs import gen_recs
+from email_recs import send_emails
 
 application = Flask(__name__)
 
@@ -27,7 +28,7 @@ def link_search_pg():
     rec_num = request.json['rec_num']
 
     generation_times = gen_recs(user_id,rec_num,clust_num,percent)
-
+    send_emails(user_id)
     return generation_times
     
 if __name__ == '__main__':

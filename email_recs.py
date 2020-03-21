@@ -13,13 +13,12 @@ user=os.environ['PGCONNECT_USER']
 password=os.environ['PGCONNECT_PASSWORD']
 host= os.environ['PGCONNECT_HOST']
 port=os.environ['PGCONNECT_PORT']
-json_key=os.environ['GOOGLE_APPLICATION_CREDENTIALS']
     
 def fetch_cur_recs(user_id):
     conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port, sslmode='require')
     cur = conn.cursor()
 
-    sql = "select art_id, title, lang from recommendations where date_trunc('day', rec_date) = '2020-03-20' AND user_id = %s"
+    sql = "select art_id, title, lang from recommendations where date_trunc('day', rec_date) = current_date AND user_id = %s"
     
     cur.execute(sql,(user_id,))
     recommendations = cur.fetchall()
