@@ -1,149 +1,163 @@
-from gensim.models.doc2vec import Doc2Vec,TaggedDocument
 import datetime
 import json
-from textblob import TextBlob
-import pandas as pd
-from sklearn.cluster import KMeans
-from stop_words import get_stop_words
 import os
 import re
 import sys 
-import numpy as np 
 import psycopg2
 import requests
-from bs4 import BeautifulSoup
 import traceback
-from dotenv import load_dotenv
 from requests.exceptions import HTTPError
 
-load_dotenv()
+cloud_link = os.getenv('GCLOUD_LINK')
 
-user = os.getenv('PGCONNECT_USER')
-password = os.getenv('PGCONNECT_PASSWORD')
-host = os.getenv('PGCONNECT_HOST')
-port = os.getenv('PGCONNECT_PORT')
-dbname = os.getenv('PGCONNECT_DBNAME')
-
-def article_vec(article,lang_model,lang):
-    stop_words = get_stop_words(lang)
-    histnostop = [i for i in article.lower().split() if i not in stop_words]
-    vec = lang_model.infer_vector(histnostop)
-    return vec
-
-def trans_vec_centers(cluster, trans_lang_model, trans_lang):
-    trans_vecs=[]
-    for art in cluster["cluster"]:
-        try:
-            trans_art = str(TextBlob(art["art"]).translate(to=trans_lang))
-            trans_vec = article_vec(trans_art, trans_lang_model, trans_lang)
-            trans_vecs.append(trans_vec)
-        except Exception:
-            traceback.print_exc()
-            pass
-            
-    vec_center = np.mean(trans_vecs, axis = 0)
-    return vec_center
-
-def get_recs(vec_centers,lang_model,rec_num):
-    recs = [lang_model.docvecs.most_similar([vec_centers[i]], topn=rec_num) for i, x in enumerate(vec_centers)]
-    return [[x[0] for x in rec] for rec in recs]
-
-def store_recs(uid, recs, trans_lang, cluster):
-    now = datetime.datetime.now()
+def get_user(user_id):
+    user = os.getenv('PGCONNECT_USER')
+    password = os.getenv('PGCONNECT_PASSWORD')
+    host = os.getenv('PGCONNECT_HOST')
+    port = os.getenv('PGCONNECT_PORT')
+    dbname = os.getenv('PGCONNECT_DBNAME')
+    
     conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port, sslmode='require')
-    cur = conn.cursor() 
-    for art_id in recs:
-        data = (uid, art_id, now, trans_lang, cluster)
-        query = 'INSERT INTO recommendations (uid, art_id, rec_date, lang, cluster_num) VALUES (%s,%s,%s,%s,%s)'
-        conn.commit()
-        cur.execute(query,data)
+    cur = conn.cursor()
+
+
+    sql = "SELECT native_lang, es_rec,fr_rec,de_rec,en_rec,langs FROM users WHERE id = %s"
+    cur.execute(sql,(user_id,))
+    user  = cur.fetchall()
     conn.close()
+    return user[0]
 
-def generate_recs(pop_clusters,uid, trans_lang, rec_num):
-    trans_lang_model_path=f'{trans_lang}model3.model'
+def cluster_arts(native_lang,user_id,clust_num,percent):
 
-    t0=datetime.datetime.now()
-    trans_lang_model = Doc2Vec.load(trans_lang_model_path)
-    t1=datetime.datetime.now()
-    loaded_models = f'loaded models {str(t1-t0)}'
-    print(loaded_models)
+    cluster_link = f'https://lango-rec-{native_lang}-v26nfpfxqq-uc.a.run.app/cluster'
 
-    t14=datetime.datetime.now()
-    trans_lang_vec_centers = [trans_vec_centers(cluster,trans_lang_model,trans_lang) for cluster in pop_clusters]
-    t15=datetime.datetime.now()
-    trans_vec='translate and vec to trans lang'+ str(t15-t14)
-    print(trans_vec)
+    try:
+        cluster = requests.post(cluster_link, json={
+                "native_lang": native_lang,
+                "user_id":user_id,
+                "clust_num":clust_num,
+                "percent":percent
+            })
+        pop_clusters=cluster.json()
+        print(len(pop_clusters))
+        for cluster in pop_clusters:
+            print(len(cluster))
+        return pop_clusters
+    except:
+        print('error')
 
-    t16=datetime.datetime.now()
-    recs = get_recs(trans_lang_vec_centers, trans_lang_model, rec_num)
-    t17=datetime.datetime.now()
-    trans_recs = 'get trans lang recs' + str(t17-t16)
-    print(trans_recs)
+    
 
+def get_recs(pop_clusters,user_id,rec_num,trans_lang):
+
+    trans_links = f'https://lango-rec-{trans_lang}-v26nfpfxqq-uc.a.run.app/get_recs'
+
+    response = requests.post(trans_links, json={
+        "trans_lang": trans_lang,
+        "user_id":user_id,
+        "rec_num":rec_num,
+        "pop_clusters":pop_clusters
+    })
+    print(response)
+
+def gen_recs(user_id,rec_num,clust_num,percent):
     t18=datetime.datetime.now()
-    for i,recs in enumerate(recs):
-        store_recs(uid, recs, trans_lang, i)
+    user1 = get_user(user_id)
+
+    native_lang=user1[0]
+    es_rec=user1[1]
+    fr_rec=user1[2]
+    de_rec=user1[3]
+    en_rec=user1[4]
+    langs=user1[5]
+
+    pop_clusters = cluster_arts(native_lang,user_id,clust_num,percent)
+
+    rec_times = {}
+        
+    if es_rec:
+        t0=datetime.datetime.now()
+        print('es_rec generate')
+        get_recs(pop_clusters,user_id,rec_num,'es')
+        t1=datetime.datetime.now()
+        es_rec_time='es_rec' + str(t1-t0)
+        rec_times['es_rec_time'] = es_rec_time
+        print(es_rec_time)
+    
+    if de_rec:
+        t2=datetime.datetime.now()
+        print('de_rec generate')
+        get_recs(pop_clusters,user_id,rec_num,'de')
+        t3=datetime.datetime.now()
+        de_rec_time='de_rec' + str(t3-t2)
+        rec_times['de_rec_time'] = de_rec_time
+        print(de_rec_time)
+    
+    if fr_rec:
+        t4=datetime.datetime.now()
+        print('fr_rec generate')
+        get_recs(pop_clusters,user_id,rec_num,'fr')
+        t5=datetime.datetime.now()
+        fr_rec_time='fr_rec' + str(t5-t4)
+        rec_times['fr_rec_time'] = fr_rec_time
+        print(fr_rec_time)
+    
+    if en_rec:
+        t6=datetime.datetime.now()
+        print('en_rec generate')
+        get_recs(pop_clusters,user_id,rec_num,'en')
+        t7=datetime.datetime.now()
+        en_rec_time='en_rec' + str(t7-t6)
+        rec_times['en_rec_time'] = en_rec_time
+        print(en_rec_time)
     
     t19=datetime.datetime.now()
     store_recs1='store recs' + str(t19-t18)
+    rec_times['store recs'] = store_recs1
     print(store_recs1)
-    total='total time'+str(t19-t0)
-    print(total)
-
-    generation_times={
-        "loaded_models":loaded_models,
-        "trans_vec":trans_vec,
-        "trans_recs":trans_recs,
-        "store_recs":store_recs1,
-        "total":total
-    }
-    return generation_times
+    print(rec_times)
+    
+    return 'All recs uploaded'
 
 def main():
+    user_id=22
+    t18=datetime.datetime.now()
 
-    #native_lang = sys.argv[1]
-    #trans_lang = sys.argv[2]
-    #uid = sys.argv[3]
-    clust_num=15
-    percent=.33
-    rec_num=20 
-
-    trans_lang = 'de'
-
-    uid = '3736ENQJEUavLjKX8ufPf5zfKl62'
-    native_lang='en'
-    clust_num:15
-    percent:0.33
+    user1 = get_user(user_id)
+    print(user1)
     
-    print('generating recs for userid:' + uid + ' trans: '+ trans_lang)
+    native_lang=user1[0]
+    es_rec=user1[1]
+    fr_rec=user1[2]
+    de_rec=user1[3]
+    en_rec=user1[4]
 
-    native_data = {
-        "native_lang": native_lang,
-        "uid":uid,
-        "clust_num":clust_num,
-        "percent":percent
-    }
+    clust_num=15
+    percent=0.33
+    rec_num=20
 
-    cluster_link = 'https://lango-cluster-en-v26nfpfxqq-uc.a.run.app/get_recs'
+    print('clustering')
+    pop_clusters = cluster_arts(native_lang,user_id,clust_num,percent)
+    
+    if es_rec:
+        print('es_rec generate')
+        get_recs(pop_clusters,user_id,rec_num,'es')
+    
+    if de_rec:
+        print('de_rec generate')
+        get_recs(pop_clusters,user_id,rec_num,'de')
+    
+    if fr_rec:
+        print('fr_rec generate')
+        get_recs(pop_clusters,user_id,rec_num,'fr')
+    
+    if en_rec:
+        print('en_rec generate')
+        get_recs(pop_clusters,user_id,rec_num,'es')
 
-    try:
-        response = requests.post(cluster_link, json={
-            "native_lang": native_lang,
-            "uid":uid,
-            "clust_num":clust_num,
-            "percent":percent
-        })
-        pop_clusters=response.json()
-        generation_times = generate_recs(pop_clusters,uid, trans_lang, rec_num)
-
-        print(generation_times)
-        
-    except HTTPError as http_err:
-        print(f'HTTP error occurred: {http_err}')  
-    except Exception as err:
-        print(f'Other error occurred: {err}') 
-    else:
-        print('Success!')
+    t19=datetime.datetime.now()
+    store_recs1='store recs' + str(t19-t18)
+    print(store_recs1)
 
 if __name__ == '__main__':
     main()
