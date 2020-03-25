@@ -46,7 +46,6 @@ def cluster_arts(native_lang,user_id,clust_num,percent):
     except:
         print('error')
 
-    
 
 def get_recs(pop_clusters,user_id,rec_num,trans_lang):
 
